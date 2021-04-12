@@ -1,170 +1,314 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Bea Cukai Kotabaru</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
+@include('fe.components.header')
 
-  <!-- Favicons -->
-  <link href="bckotabaru/img/favicon.png" rel="icon">
-  <link href="bckotabaru/img/apple-touch-icon.png" rel="apple-touch-icon">
+@include('fe.components.navigasi')
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+<img src="{{asset('storage/' . $image_post)}}" alt="" style="width: 100%; margin-top: 11.6vh" class="jumbotron-fluid" />
 
-  <!-- Bootstrap CSS File -->
-  <link href="{{asset('fe/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
-  <!-- Libraries CSS Files -->
-  <link href="{{asset('fe/lib/nivo-slider/css/nivo-slider.min.css')}}" rel="stylesheet">
-  <link href="{{asset('fe/lib/owlcaraousel/owl.caraousel.css')}}" rel="stylesheet">
-  <link href="{{asset('fe/lib/owlcaraousel/owl.transitions.css')}}" rel="stylesheet">
-  <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
-  <link href="{{asset('fe/lib/animate/animate.min.css')}}" rel="stylesheet">
-  <link href="{{asset('fe/lib/venobox/venobox.css')}}" rel="stylesheet">
-
-  <!-- Nivo Slider Theme -->
-  <link href="{{asset('fe/css/nivo-slider-theme.css')}}" rel="stylesheet">
-
-  <!-- Main Stylesheet File -->
-  <link href="{{asset('fe/css/style.css')}}" rel="stylesheet">
-
-  <!-- Responsive Stylesheet File -->
-  <link href="{{asset('fe/css/responsive.css')}}" rel="stylesheet">
-
-  <!-- =======================================================
-    Theme Name: eBusiness
-    Theme URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
-</head>
-
-<body data-spy="scroll" data-target="#navbar-example">
-
-  <header>
-    <!-- header-area start -->
-    <div id="sticker" class="header-area">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-            <!-- Navigation -->
-            <nav class="navbar navbar-default">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- Brand -->
-                <a class="navbar-brand page-scroll sticky-logo" href="index.html">
-                  <h1><span>BC</span>Kotabaru</h1>
-                  <!-- Uncomment below if you prefer to use an image logo -->
-                  <!-- <img src="img/logo.png" alt="" title=""> -->
-                </a>
-              </div>
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
-                <ul class="nav navbar-nav navbar-right">
-                  <li class="active">
-                    <a class="page-scroll" href="#home">HOME</a>
-                  </li>
-                  <li>
-                    <a class="page-scroll" href="#about">PROFIL</a>
-                  </li>
-                  <li>
-                    <a class="page-scroll" href="#services">SIRING</a>
-                  </li>
-                  <li>
-                    <a class="page-scroll" href="#pricing">PELAYANAN</a>
-                  </li>
-                  <li>
-                    <a class="page-scroll" href="https://drive.google.com/drive/folders/1IcGJczgNNqRUMSIxyGo2AUNHwibDMqfg" target="_blank">PERATURAN</a>
-                  </li>
-                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">TENTANG KAMI<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#portofolio" class="page-scroll" >TUGAS KAMI</a></li>
-                      <li><a href=bckotabaru/comingsoon >GALERI</a></li>
-                      <li><a class="page-scroll" href="#team" >HASIL SURVEY</a></li>
-                      <li><a href=bckotabaru/comingsoon >ALUR PROSES BISNIS</a></li>
-                    </ul>
-                  </li>
-
-                  <li>
-                    <a class="page-scroll" href="#blog">BERITA</a>
-                  </li>
-                  <li>
-                    <a class="page-scroll" href="#contact">KONTAK</a>
-                  </li>
-                  <li>
-                    <a class="page-scroll" href="http://bckotabaru.net/forum/" target="_blank">FORUM</a>
-                  </li>
-                </ul>
-
-              </div>
-              <!-- navbar-collapse -->
-            </nav>
-            <!-- END: Navigation -->
-          </div>
+<div class="container" style="margin-top: 80px">
+    <div class="head-title">
+        <h3>{!! $title_post !!}</h3>
+        <hr>
+    </div>
+    <div class="body-title">
+        {!! $content_post !!}
+        <hr>
+    </div>
+    <div class="footer-title">
+        <div class="col-12">
+            <p>Tanggal {!! $created_at !!}</p>
         </div>
-      </div>
     </div>
-    <!-- header-area end -->
-  </header>
-  <!-- header end -->
+</div>
 
-  <div id="home" class="slider-area">
-    <img src="{{asset('storage/' . $image_post)}}" alt="" style="width: 100%; margin-top: 11.6vh" />
 
+<!-- Start reviews Area -->
+<div class="reviews-area hidden-xs">
+    <div class="work-us">
+        <div class="work-left-text">
+            <a href="#">
+                <img src="{{asset('img/komunitas.jpg')}}" alt="">
+            </a>
+        </div>
+        <div class="work-right-text text-center">
+            <h2>BC Kotabaru Bersama Komunitas</h2>
+            <h5>Momen epik hasil kerjasama banyak pihak seperti ini telah menghasilkan banyak manfaat positif yang didapat</h5>
+            <a href="#contact" class="ready-btn">Kontak Kami</a>
+        </div>
+    </div>
+</div>
+<!-- End reviews Area -->
+<!-- Start portfolio Area -->
+<div id="portfolio" class="portfolio-area area-padding fix">
     <div class="container">
-        tes
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="section-headline text-center">
+                    <h2>BC Kotabaru Link</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="awesome-project-content">
+                @forelse ($media as $item)
+                    <div class="col-md-4 col-sm-4 col-xs-12 photo">
+                        <div class="single-awesome-project">
+                            <div class="awesome-img">
+                                <a href="#"><img src="{{ asset('storage/' . $item->image_link) }}" alt="" /></a>
+                                <div class="add-actions text-center">
+                                    <div class="project-dec">
+                                        <a href='{{$item->external_link}}' target="_blank">
+                                            <!--<a class="venobox" data-gall="myGallery" href="img/portfolio/insw.png">-->
+                                            <h4 class="h4" style="margin-top: 0px; padding-top: 30px">{{$item->title_link}}</h4>
+                                            <span>{{$item->description_link}}</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+
+                @endforelse
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+<!-- awesome-portfolio end -->
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- Start Testimonials -->
+<div class="testimonials-area">
+    <div class="testi-inner area-padding">
+        <div class="testi-overly"></div>
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <!-- Start testimonials Start -->
+                    <div class="testimonial-content text-center">
+                        <a class="quate" href="#">
+                            <i class="fa fa-quote-right"></i>
+                        </a>
+                        <!-- start testimonial carousel -->
+                        <div class="testimonial-carousel">
+                            <!-- End single item -->
+                            @foreach ($testimonis as $item)
+                                <div class="single-testi">
+                                    <div class="testi-text">
+                                        <p>
+                                            {{$item->testimoni}}
+                                        </p>
+                                        <h6>{{$item->name_testimoni}}</h6>
+                                        <p>{{$item->company_testimoni}}</p>
+                                    </div>
+                                </div>
+                                <!-- End single item -->
+                            @endforeach
+                        </div>
+                    </div>
+                    <!-- End testimonials end -->
+                </div>
+                <!-- End Right Feature -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Testimonials -->
 
-  <!-- JavaScript Libraries -->
-  <script src="{{asset('fe/lib/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('fe/lib/bootstrap/js/bootstrap.min.js')}}"></script>
-  <script src="{{asset('fe/lib/owlcaraousel/owl.caraousel.min.js')}}"></script>
-  <script src="{{asset('fe/lib/venobox/venobox.min.js')}}"></script>
-  <script src="{{asset('fe/lib/knob/jquery.knob.js')}}"></script>
-  <script src="{{asset('fe/lib/wow/wow.min.js')}}"></script>
-  <script src="{{asset('fe/lib/parallax/parallax.js')}}"></script>
-  <script src="{{asset('fe/lib/easing/easing.min.js')}}"></script>
-  <script src="{{asset('fe/lib/nivo-slider/js/nivo-slider.js')}}" type="text/javascript"></script>
-  <script src="{{asset('fe/lib/appear/jquery.appear.js')}}"></script>
-  <script src="{{asset('fe/lib/isotope/isotope.pkgd.min.js')}}"></script>
+<!-- Start Blog Area -->
+<div id="blog" class="blog-area">
+    <div class="blog-inner area-padding">
+        <div class="blog-overly"></div>
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-headline text-center">
+                        <h2>Berita Terkini</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            @foreach ($posts as $item)
+                <!-- Start Left Blog -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="single-blog">
+                            <div class="single-blog-img">
+                                <a href="bckotabaru/comingsoon">
+                                    <img src="{{asset('storage/' . $item->image_post)}}" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-meta">
+                                {{-- <span class="comments-type">
+                                    <i class="fa fa-comment-o"></i>
+                                    <a href="#">13 comments</a>
+                                </span> --}}
+                                <span class="date-type">
+                            <i class="fa fa-calendar"></i> {{$item->created_at->format('Y m d / h:i:s')}}
+                        </span>
+                            </div>
+                            <div class="blog-text">
+                                <h4>
+                                    <a href="{{url('post/' . $item->slug)}}">{{$item->title_post}}</a>
+                                </h4>
+                                <p style="text-align: justify;">
+                                    {{ substr($item->content_post, 1, 200) }} ...
+                                </p>
+                            </div>
+                            <span>
+                        <a href="{{url('post/' . $item->slug)}}" class="ready-btn">Read more</a>
+                    </span>
+                        </div>
+                        <!-- Start single blog -->
+                    </div>
+                    <!-- End Left Blog-->
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Blog -->
+<!-- Start Suscrive Area -->
+<div class="suscribe-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
+                <div class="suscribe-text text-center">
+                    <h3>Welcome to Bea Cukai Kotabaru</h3>
+                    <a class="sus-btn" href="#">Kontak Kami</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Suscrive Area -->
+<!-- Start contact Area -->
+<div id="contact" class="contact-area">
+    <div class="contact-inner area-padding">
+        <div class="contact-overly"></div>
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-headline text-center">
+                        <h2>Kontak Kami</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Start contact icon column -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="contact-icon text-center">
+                        <div class="single-icon">
+                            <i class="fa fa-mobile"></i>
+                            <p>
+                                Telpon: 0812-5825-7525<br>
+                                <span>Buka 24 Jam</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start contact icon column -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="contact-icon text-center">
+                        <div class="single-icon">
+                            <i class="fa fa-envelope-o"></i>
+                            <p>
+                                Email: kpbc_kotabaru@yahoo.com<br>
+                                <span>Web: www.bckotabaru.net</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start contact icon column -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="contact-icon text-center">
+                        <div class="single-icon">
+                            <i class="fa fa-map-marker"></i>
+                            <p>
+                                Alamat: Jl. Pangeran Kesuma Negara 12 B<br>
+                                <span>Kotabaru, Kalimantan Selatan 72111</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-  <!-- Contact Form JavaScript File -->
-  <script src="{{asset('fe/contactform/contactform.js')}}"></script>
+        </div>
+    </div>
+</div>
+<!-- End Contact Area -->
 
-  <script src="{{asset('fe/js/main.js')}}"></script>
-  <script>
-      /*---------------------
-     Testimonial carousel
-    ---------------------*/
+<!-- Start Footer bottom Area -->
+<footer>
+    <div class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <div class="footer-logo">
+                                <h2><span>BC</span>Kotabaru</h2>
+                            </div>
 
-    var test_carousel = $('.testimonial-carousel');
-    test_carousel.owlCarousel({
-      loop: true,
-      nav: false,
-      dots: true,
-      autoplay: true,
-      responsive: {
+                            <p style="text-align: justify;">Kantor Pengawasan dan Pelayanan Bea dan Cukai Tipe Madya Pabean C Kotabaru berada di bawah Kantor Wilayah DJBC Kalimantan Bagian Selatan, merupakan salah satu unit kerja vertikal di bawah Direktorat Jenderal Bea dan Cukai pada Kementerian Keuangan Republik Indonesia.</p>
+                            <div class="footer-icons">
+                                <ul>
+                                    <li>
+                                        <a href="https://id-id.facebook.com/pages/category/Government-Organization/Bea-Cukai-Kotabaru-1436837939680697/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/bckotabaru?lang=en" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/channel/UCfLGTQ6CEgLIa1DstHfLAzA" target="_blank"><i class="fa fa-youtube"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/beacukai.kotabaru/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single footer -->
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <h4>Informasi</h4>
+                            <div class="footer-contacts">
+                                <p><span>Tel:</span> 0812-5825-7525</p>
+                                <p><span>Email:</span> kpbc_kotabaru@yahoo.com</p>
+                                <p><span>Jam Kerja:</span> 24 Jam</p>
+                            </div>
+                            <h4>Jumlah Pengunjung</h4>
+                            <div class="footer-contacts"><script type="text/javascript" src="http://services.webestools.com/cpt_visitors/64272-1-9.js"></script></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single footer -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <h4>Peta Lokasi</h4>
+                            {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.4624998824697!2d116.22745961414053!3d-3.2344805976450886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2def31e82351e6d3%3A0x5f863fc0fa076e24!2sKANTOR%20BEA%20CUKAI%20KOTABARU!5e0!3m2!1sid!2sid!4v1574393905911!5m2!1sid!2sid" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-area-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="copyright text-center">
+                        <p>
+                            Created @2019 by <strong> Yo</strong> || KPPBC TMP C Kotabaru
+                        </p>
+                    </div>
 
-        0 : {
-            items : 1
-        },
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
-      }
-    });
-  </script>
-
-</body>
-
-</html>
+@include('fe.components.footer')

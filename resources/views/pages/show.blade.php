@@ -23,7 +23,7 @@
                 @can('update', $page)
                     <a href="{{ route('pages.edit', $page) }}" id="edit-page-{{ $page->id }}" class="btn btn-warning">Ubah Halaman</a>
                 @endcan
-                <a href="{{ route('pages.index') }}" class="btn btn-link">Batal</a>
+                <a href="{{ route('pages.index') }}" class="btn btn-link">Kembali</a>
             </div>
         </div>
     </div>

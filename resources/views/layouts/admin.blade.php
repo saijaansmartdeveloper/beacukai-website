@@ -20,27 +20,31 @@
                     </li>
 
                     <li class="sidebar-item">
-						<a class="sidebar-link" href="{{ url('banners') }}">
-                            <i class="align-middle" data-feather="image"></i> <span class="align-middle">Banner</span>
+                        <a data-bs-target="#cms-beacukai" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                            <i class="align-middle" data-feather="settings"></i> <span class="align-middle">CMS Beacukai</span>
                         </a>
-                    </li>
-
-                    <li class="sidebar-item">
-						<a class="sidebar-link" href="{{ url('pages') }}">
-                            <i class="align-middle" data-feather="file"></i> <span class="align-middle">Page</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item">
-						<a class="sidebar-link" href="{{ url('posts') }}">
-                            <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Post</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item">
-						<a class="sidebar-link" href="{{ url('testimonis') }}">
-                            <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Testimoni</span>
-                        </a>
+                        <ul id="cms-beacukai" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ url('banners') }}">
+                                    Banner
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ url('pages') }}">
+                                    Page
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ url('posts') }}">
+                                    Post
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ url('testimonis') }}">
+                                    Testimoni
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="sidebar-item">

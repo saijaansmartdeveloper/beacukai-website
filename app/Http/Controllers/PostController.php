@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
+use App\Models\KotabaruLink;
+use App\Models\Page;
 use App\Models\Post;
+use App\Models\Siring;
+use App\Models\Survey;
+use App\Models\Testimoni;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -141,8 +147,17 @@ class PostController extends Controller
 
     public function single($slug)
     {
-        $post = Post::where('slug', $slug)->firstOrFail();
+        $data = [
+            'banners'   => Banner::orderBy('priority_banner', 'asc')->where('is_active_banner', '1')->get() ?? [],
+            'profil'    => Page::where('name_page', 'TENTANG BC KOTABARU')->first() ?? [],
+            'siring'    => Siring::orderBy('is_priority', 'asc')->get() ?? [],
+            'survey'    => Survey::where('is_active_survey', 1)->first(),
+            'media'     => KotabaruLink::get() ?? [],
+            'testimonis' => Testimoni::get() ?? [],
+            'posts'     => Post::orderBy('created_at', 'desc')->take(3)->get(),
+            'post' => Post::where('slug', $slug)->firstOrFail()
+        ];
 
-        return view('single', $post);
+        return view('single', $data);
     }
 }

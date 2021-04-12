@@ -19,9 +19,9 @@
             </div>
             <div class="card-footer">
                 @can('update', $siring)
-                    <a href="{{ route('sirings.edit', $siring) }}" id="edit-siring-{{ $siring->id }}" class="btn btn-warning">{{ __('siring.edit') }}</a>
+                    <a href="{{ route('sirings.edit', $siring) }}" id="edit-siring-{{ $siring->id }}" class="btn btn-warning">Ubah Detail</a>
                 @endcan
-                <a href="{{ route('sirings.index') }}" class="btn btn-link">{{ __('siring.back_to_index') }}</a>
+                <a href="{{ route('sirings.index') }}" class="btn btn-link">Kembali</a>
             </div>
         </div>
     </div>
