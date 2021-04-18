@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePagesTable extends Migration
+class CreateLayanansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreatePagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('layanans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name_page', 60);
-            $table->string('slug');
-            $table->string('description_page')->nullable();
-            $table->text('content_page')->nullable();
-            $table->string('image_page')->nullable();
+            $table->string('title', 60);
+            $table->string('description')->nullable();
             $table->foreignId('creator_id')->constrained('users')->onDelete('restrict');
             $table->timestamps();
         });
@@ -32,6 +29,6 @@ class CreatePagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('layanans');
     }
 }

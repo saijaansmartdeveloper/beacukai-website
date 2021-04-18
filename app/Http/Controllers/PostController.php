@@ -155,7 +155,7 @@ class PostController extends Controller
             'media'     => KotabaruLink::get() ?? [],
             'testimonis' => Testimoni::get() ?? [],
             'posts'     => Post::orderBy('created_at', 'desc')->take(3)->get(),
-            'post' => Post::where('slug', $slug)->firstOrFail()
+            'post' => Post::where('slug', $slug)->first()
         ];
 
         return view('single', $data);

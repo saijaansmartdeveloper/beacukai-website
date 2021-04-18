@@ -20,6 +20,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('post/{slug}', [App\Http\Controllers\PostController::class, 'single'])->name('post.single');
+Route::get('page/{slug}', [App\Http\Controllers\PageController::class, 'single'])->name('page.single');
 /*
  * Banners Routes
  */
@@ -59,3 +60,13 @@ Route::resource('kotabaru_links', App\Http\Controllers\KotabaruLinkController::c
  * Testimonis Routes
  */
 Route::resource('testimonis', App\Http\Controllers\TestimoniController::class);
+
+/*
+ * Layanans Routes
+ */
+Route::resource('layanans', App\Http\Controllers\LayananController::class);
+
+/*
+ * Direktoris Routes
+ */
+Route::resource('direktoris', App\Http\Controllers\DirektoriController::class);
