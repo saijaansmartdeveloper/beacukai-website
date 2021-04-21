@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Page;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
 
 class ProfileSeeder extends Seeder
 {

@@ -60,8 +60,11 @@
                                     <a class="page-scroll" href="#contact">KONTAK</a>
                                 </li>
                                 <li>
-                                    <a class="page-scroll" href="http://bckotabaru.net/forum/" target="_blank">FORUM</a>
+                                    <a href="{{ url('page/faq') }}">FAQ</a>
                                 </li>
+                                {{-- <li>
+                                    <a class="page-scroll" href="http://bckotabaru.net/forum/" target="_blank">FORUM</a>
+                                </li> --}}
                             </ul>
 
                         </div>

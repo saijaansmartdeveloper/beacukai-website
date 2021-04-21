@@ -15,7 +15,7 @@
         </div>
 
         <!-- direction 1 -->
-
+        @forelse ($banners as $key => $item)
         <div id="slider-direction-1" class="slider-direction slider-one">
             <div class="container">
                 <div class="row">
@@ -40,6 +40,9 @@
                 </div>
             </div>
         </div>
+        @empty
+        @endforelse
+
     </div>
 </div>
 <!-- End Slider Area -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -47,11 +48,11 @@ class PageController extends Controller
 
         $newPage = $request->validate([
             'name_page'         => 'required|max:60',
-            'slug'              => 'nullable|max:255',
             'description_page'  => 'nullable|max:255',
             'content_page'      => 'nullable'
         ]);
 
+        $newPage['slug']       = Str::slug($request->name_page);
         $newPage['creator_id'] = auth()->id();
 
         if ($request->hasFile('image_page')) {
@@ -101,10 +102,11 @@ class PageController extends Controller
 
         $pageData = $request->validate([
             'name_page'         => 'required|max:60',
-            'slug'              => 'nullable|max:255',
             'description_page'  => 'nullable|max:255',
             'content_page'      => 'nullable'
         ]);
+
+        $pageData['slug']       = Str::slug($request->name_page);
 
         if ($request->hasFile('image_page')) {
             $filename               = time() . '.' . $request->file('image_page')->extension();
