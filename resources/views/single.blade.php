@@ -2,20 +2,20 @@
 
 @include('fe.components.navigasi')
 
-<img src="{{asset('storage/' . $image_post)}}" alt="" style="width: 100%; margin-top: 11.6vh" class="jumbotron-fluid" />
+<img src="{{asset('storage/' . $post->image_post)}}" alt="" style="width: 100%; margin-top: 11.6vh" class="jumbotron-fluid" />
 
 <div class="container" style="margin-top: 80px">
     <div class="head-title">
-        <h3>{!! $title_post !!}</h3>
+        <h3>{!! $post->title_post !!}</h3>
         <hr>
     </div>
     <div class="body-title">
-        {!! $content_post !!}
+        {!! $post->content_post !!}
         <hr>
     </div>
     <div class="footer-title">
         <div class="col-12">
-            <p>Tanggal {!! $created_at !!}</p>
+            <p>Tanggal {!! $post->created_at !!}</p>
         </div>
     </div>
 </div>

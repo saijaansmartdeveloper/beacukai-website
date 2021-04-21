@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+
 use App\Models\Layanan;
 use Illuminate\Database\Seeder;
 
@@ -85,6 +86,5 @@ class JanjiLayananSeeder extends Seeder
             'biaya_layanan'     => 'GRATIS',
             'creator_id'        => 1
         ]);
-
     }
 }

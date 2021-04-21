@@ -22,6 +22,7 @@ Route::get('post/{slug}', [App\Http\Controllers\AdminController::class, 'single_
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 /*
  * Banners Routes
  */
@@ -81,3 +82,4 @@ Route::resource('footers', App\Http\Controllers\FooterController::class);
  * Directories Routes
  */
 Route::resource('directories', App\Http\Controllers\DirectoryController::class);
+

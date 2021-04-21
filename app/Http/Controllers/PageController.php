@@ -137,4 +137,20 @@ class PageController extends Controller
 
         return back();
     }
+
+    public function single($slug)
+    {
+        $data = [
+            'banners'   => Banner::orderBy('priority_banner', 'asc')->where('is_active_banner', '1')->get() ?? [],
+            'profil'    => Page::where('name_page', 'TENTANG BC KOTABARU')->first() ?? [],
+            'siring'    => Siring::orderBy('is_priority', 'asc')->get() ?? [],
+            'survey'    => Survey::where('is_active_survey', 1)->first(),
+            'media'     => KotabaruLink::get() ?? [],
+            'testimonis' => Testimoni::get() ?? [],
+            'posts'     => Post::orderBy('created_at', 'desc')->take(3)->get(),
+            'page' => Page::where('slug', $slug)->first()
+        ];
+
+        return view('single', $data);
+    }
 }

@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 
+
 @section('title', __('layanan.detail'))
 
 @section('content')
@@ -36,7 +37,6 @@
                 @endcan
                 <a href="{{ route('layanans.index') }}" class="btn btn-link">Kembali</a>
             </div>
-
         </div>
     </div>
 </div>

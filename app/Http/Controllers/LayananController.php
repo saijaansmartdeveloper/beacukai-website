@@ -16,6 +16,7 @@ class LayananController extends Controller
     public function index(Request $request)
     {
         $layananQuery = Layanan::query();
+
         $layananQuery->where('nama_layanan', 'like', '%'.$request->get('q').'%');
         $layananQuery->orderBy('id');
         $layanans = $layananQuery->paginate(25);
@@ -58,6 +59,7 @@ class LayananController extends Controller
         $layanan = Layanan::create($newLayanan);
 
         return redirect()->route('layanans.index');
+
     }
 
     /**
@@ -105,6 +107,7 @@ class LayananController extends Controller
         $layanan->update($layananData);
 
         return redirect()->route('layanans.index', $layanan);
+
     }
 
     /**

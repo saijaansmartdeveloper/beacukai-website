@@ -15,18 +15,22 @@
                 </div>
                 <hr style="margin:0">
                 <div class="card-body text-danger">Apakah anda yakin?</div>
+
                 <div class="card-footer">
                     <form method="POST" action="{{ route('layanans.destroy', $layanan) }}" accept-charset="UTF-8" onsubmit="return confirm(&quot;{{ __('app.delete_confirm') }}&quot;)" class="del-form float-right" style="display: inline;">
                         {{ csrf_field() }} {{ method_field('delete') }}
                         <input name="layanan_id" type="hidden" value="{{ $layanan->id }}">
+
                         <button type="submit" class="btn btn-danger">Ya, hapus sekarang!</button>
                     </form>
                     <a href="{{ route('layanans.edit', $layanan) }}" class="btn btn-link">Batal</a>
+
                 </div>
             </div>
         @endcan
         @else
         <div class="card">
+
             <form method="POST" action="{{ route('layanans.update', $layanan) }}" accept-charset="UTF-8">
                 {{ csrf_field() }} {{ method_field('patch') }}
                 <div class="card-body">
@@ -63,6 +67,7 @@
                         @endcan
                     </div>
                 </div>
+
             </form>
         </div>
     </div>
