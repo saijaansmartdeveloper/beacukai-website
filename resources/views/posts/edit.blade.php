@@ -39,8 +39,13 @@
                     </div>
                     <div class="form-group">
                         <label for="description" class="form-label">Isi Post</label>
-                        <textarea id="description" class="form-control{{ $errors->has('content_post') ? ' is-invalid' : '' }}" name="content_post" rows="8">{{ old('content_post', $post->content_post) }}</textarea>
+                        <textarea id="summernote" class="form-control{{ $errors->has('content_post') ? ' is-invalid' : '' }}" name="content_post" rows="8">{{ old('content_post', $post->content_post) }}</textarea>
                         {!! $errors->first('description', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+                    </div>
+                    <div class="form-group">
+                        <label for="priority" class="form-label">Prioritas <span class="form-required">*</span></label>
+                        <input id="priority" type="text" class="form-control{{ $errors->has('title_post') ? ' is-invalid' : '' }}" name="priority" value="{{ old('priority', $post->priority) }}" required>
+                        {!! $errors->first('priority', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                     </div>
                     <div class="form-group">
                         <input type="file" name="image_post" id="image" accept="image/*">
@@ -60,13 +65,12 @@
 @endif
 @endsection
 
+
 @section('js')
-<script src="{{ url('/node_modules/tinymce/tinymce.js') }}"></script>
-<script>
-    tinymce.init({
-        selector:'textarea.content_post',
-        width: 900,
-        height: 300
-    });
-</script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script>
 @endsection
+

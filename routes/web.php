@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [AdminController::class, 'isGUest']);
+Route::get('page/{slug}', [App\Http\Controllers\AdminController::class, 'single_page'])->name('page.single');
+Route::get('post/{slug}', [App\Http\Controllers\AdminController::class, 'single_post'])->name('post.single');
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('post/{slug}', [App\Http\Controllers\PostController::class, 'single'])->name('post.single');
 /*
  * Banners Routes
  */
@@ -59,3 +61,23 @@ Route::resource('kotabaru_links', App\Http\Controllers\KotabaruLinkController::c
  * Testimonis Routes
  */
 Route::resource('testimonis', App\Http\Controllers\TestimoniController::class);
+
+/*
+ * Layanans Routes
+ */
+Route::resource('layanans', App\Http\Controllers\LayananController::class);
+
+/*
+ * Kurs Routes
+ */
+Route::resource('kurs', App\Http\Controllers\KursController::class);
+
+/*
+ * Footers Routes
+ */
+Route::resource('footers', App\Http\Controllers\FooterController::class);
+
+/*
+ * Directories Routes
+ */
+Route::resource('directories', App\Http\Controllers\DirectoryController::class);

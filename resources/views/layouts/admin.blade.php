@@ -53,10 +53,14 @@
                         </a>
                         <ul id="menu-beacukai" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
 							<li class="sidebar-item"><a class="sidebar-link" href="{{ url('sirings') }}">Siring</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('janji_layanans') }}">Janji Layanan</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('layanans') }}">Janji Layanan</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('surveys') }}">Hasil Survey</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('socials') }}">Sosial Media</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('kurs') }}">Kurs</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('directories') }}">Direktori Peraturan</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('kotabaru_links') }}">BC Kotabaru Link</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('socials') }}">Sosial Media</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('footers') }}">Profile Instansi</a></li>
+
                         </ul>
                     </li>
 
@@ -87,7 +91,7 @@
                             </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                                <img src="{{ asset('admin/img/avatars/avatar.jpg') }}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">{{ Auth::user()->name ?? '' }}</span>
+                                <img src="{{ asset('img/logo_kckotabaru.jpg') }}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">{{ Auth::user()->name ?? '' }}</span>
                             </a>
 							<div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -115,13 +119,7 @@
                         </div>
                         {{-- Breadcumb --}}
                         <div class="col-auto ms-auto text-end mt-n1">
-							<nav aria-label="breadcrumb">
-								<ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
-									<li class="breadcrumb-item"><a href="#">AdminKit</a></li>
-									<li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Analytics</li>
-								</ol>
-							</nav>
+							@yield('button-create')
                         </div>
 
                     </div>
@@ -137,7 +135,6 @@
 
         @include('layouts.includes.js')
         @yield('js')
-
     </body>
 
 </html>

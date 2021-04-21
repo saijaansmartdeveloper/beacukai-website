@@ -15,6 +15,7 @@ class Post extends Model
         'content_post',
         'image_post',
         'slug',
+        'priority',
         'creator_id'
     ];
 

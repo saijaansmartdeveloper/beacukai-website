@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Page;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class ProfileSeeder extends Seeder
 {
@@ -29,8 +30,18 @@ class ProfileSeeder extends Seeder
 
         Page::create([
             'name_page'         => 'TENTANG BC KOTABARU',
+            'slug'              => Str::slug('TENTANG BC KOTABARU'),
             'description_page'  => 'Profil Beacukai',
             'content_page'      => $content,
+            'image_page'        => '',
+            'creator_id'        => '1'
+        ]);
+
+        Page::create([
+            'name_page'         => 'Struktur Organisasi',
+            'slug'              => Str::slug('Struktur Organisasi'),
+            'description_page'  => '',
+            'content_page'      => '',
             'image_page'        => '',
             'creator_id'        => '1'
         ]);
