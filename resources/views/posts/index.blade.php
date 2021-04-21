@@ -25,31 +25,36 @@
                     <a href="{{ route('posts.index') }}" class="btn btn-link">{{ __('app.reset') }}</a>
                 </form>
             </div>
-            <table class="table table-sm table-responsive-sm table-hover">
-                <thead>
+
+            <div class="card-body">
+                <table class="table table-sm table-responsive-sm table-hover">
+                    <thead>
                     <tr>
                         <th class="text-center">{{ __('app.table_no') }}</th>
                         <th>{{ __('post.title') }}</th>
                         <th>{{ __('post.description') }}</th>
+                        <th>Prioritas</th>
                         <th class="text-center">{{ __('app.action') }}</th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     @foreach($posts as $key => $post)
-                    <tr>
-                        <td class="text-center">{{ $posts->firstItem() + $key }}</td>
-                        <td>{!! $post->title_link !!}</td>
-                        <td>{{ $post->description }}</td>
-                        <td class="text-center">
-                            @can('view', $post)
-                                <a href="{{ route('posts.show', $post) }}" id="show-post-{{ $post->id }}">{{ __('app.show') }}</a>
-                            @endcan
-                        </td>
-                    </tr>
+                        <tr>
+                            <td class="text-center">{{ $posts->firstItem() + $key }}</td>
+                            <td>{!! $post->title_link !!}</td>
+                            <td>{!! substr($post->content_post, 0, 100) !!}</td>
+                            <td>{!! $post->priority !!}</td>
+                            <td class="text-center">
+                                @can('view', $post)
+                                    <a href="{{ route('posts.show', $post) }}" id="show-post-{{ $post->id }}">{{ __('app.show') }}</a>
+                                @endcan
+                            </td>
+                        </tr>
                     @endforeach
-                </tbody>
-            </table>
-            <div class="card-body">{{ $posts->appends(Request::except('page'))->render() }}</div>
+                    </tbody>
+                </table>
+                {{ $posts->appends(Request::except('page'))->render() }}
+            </div>
         </div>
     </div>
 </div>

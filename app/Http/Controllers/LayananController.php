@@ -16,8 +16,9 @@ class LayananController extends Controller
     public function index(Request $request)
     {
         $layananQuery = Layanan::query();
-        $layananQuery->where('title', 'like', '%'.$request->get('q').'%');
-        $layananQuery->orderBy('title');
+
+        $layananQuery->where('nama_layanan', 'like', '%'.$request->get('q').'%');
+        $layananQuery->orderBy('id');
         $layanans = $layananQuery->paginate(25);
 
         return view('layanans.index', compact('layanans'));
@@ -46,14 +47,19 @@ class LayananController extends Controller
         $this->authorize('create', new Layanan);
 
         $newLayanan = $request->validate([
-            'title'       => 'required|max:60',
-            'description' => 'nullable|max:255',
+            'nama_layanan'       => 'required|max:60',
+            'jenis_layanan'      => 'nullable|max:255',
+            'estimasi_layanan'   => 'nullable|max:255',
+            'waktu_layanan'      => 'nullable|max:255',
+            'biaya_layanan'      => 'nullable|max:255',
         ]);
+
         $newLayanan['creator_id'] = auth()->id();
 
         $layanan = Layanan::create($newLayanan);
 
-        return redirect()->route('layanans.show', $layanan);
+        return redirect()->route('layanans.index');
+
     }
 
     /**
@@ -92,12 +98,16 @@ class LayananController extends Controller
         $this->authorize('update', $layanan);
 
         $layananData = $request->validate([
-            'title'       => 'required|max:60',
-            'description' => 'nullable|max:255',
+            'nama_layanan'       => 'required|max:60',
+            'jenis_layanan'      => 'nullable|max:255',
+            'estimasi_layanan'   => 'nullable|max:255',
+            'waktu_layanan'      => 'nullable|max:255',
+            'biaya_layanan'      => 'nullable|max:255',
         ]);
         $layanan->update($layananData);
 
-        return redirect()->route('layanans.show', $layanan);
+        return redirect()->route('layanans.index', $layanan);
+
     }
 
     /**

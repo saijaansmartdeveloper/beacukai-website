@@ -10,16 +10,19 @@ class Layanan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'creator_id'];
+    protected $table = 'layanan';
+
+    protected $fillable = ['nama_layanan', 'jenis_layanan','waktu_layanan','estimasi_layanan','biaya_layanan', 'creator_id'];
+
 
     public function getTitleLinkAttribute()
     {
         $title = __('app.show_detail_title', [
-            'title' => $this->title, 'type' => __('layanan.layanan'),
+            'title' => $this->nama_layanan, 'type' => __('layanan.layanan'),
         ]);
         $link = '<a href="'.route('layanans.show', $this).'"';
         $link .= ' title="'.$title.'">';
-        $link .= $this->title;
+        $link .= $this->nama_layanan;
         $link .= '</a>';
 
         return $link;

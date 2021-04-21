@@ -15,12 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [AdminController::class, 'isGUest']);
+Route::get('page/{slug}', [App\Http\Controllers\AdminController::class, 'single_page'])->name('page.single');
+Route::get('post/{slug}', [App\Http\Controllers\AdminController::class, 'single_post'])->name('post.single');
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('post/{slug}', [App\Http\Controllers\PostController::class, 'single'])->name('post.single');
-Route::get('page/{slug}', [App\Http\Controllers\PageController::class, 'single'])->name('page.single');
+
 /*
  * Banners Routes
  */
@@ -67,6 +69,17 @@ Route::resource('testimonis', App\Http\Controllers\TestimoniController::class);
 Route::resource('layanans', App\Http\Controllers\LayananController::class);
 
 /*
- * Direktoris Routes
+ * Kurs Routes
  */
-Route::resource('direktoris', App\Http\Controllers\DirektoriController::class);
+Route::resource('kurs', App\Http\Controllers\KursController::class);
+
+/*
+ * Footers Routes
+ */
+Route::resource('footers', App\Http\Controllers\FooterController::class);
+
+/*
+ * Directories Routes
+ */
+Route::resource('directories', App\Http\Controllers\DirectoryController::class);
+

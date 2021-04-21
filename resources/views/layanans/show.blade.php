@@ -1,25 +1,41 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+
 
 @section('title', __('layanan.detail'))
 
 @section('content')
 <div class="row justify-content-center">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="card">
-            <div class="card-header">{{ __('layanan.detail') }}</div>
             <div class="card-body">
                 <table class="table table-sm">
                     <tbody>
-                        <tr><td>{{ __('layanan.title') }}</td><td>{{ $layanan->title }}</td></tr>
-                        <tr><td>{{ __('layanan.description') }}</td><td>{{ $layanan->description }}</td></tr>
+                        <tr>
+                            <td>Nama Layanan</td>
+                            <td>{{ $layanan->nama_layanan }}</td>
+                        </tr>
+                        <tr>
+                            <td>Jenis Layanan</td>
+                            <td>{{ $layanan->jenis_layanan }}</td>
+                        </tr>
+                        <tr>
+                            <td>Waktu Layanan</td>
+                            <td>{{ $layanan->waktu_layanan }}</td>
+                        </tr>
+                        <tr>
+                            <td>Estimasi Layanan</td>
+                            <td>{{ $layanan->estimasi_layanan }}</td>
+                        </tr>
+                        <tr>
+                            <td>Biaya Layanan</td>
+                            <td>{{ $layanan->biaya_layanan }}</td>
+                        </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="card-footer">
                 @can('update', $layanan)
-                    <a href="{{ route('layanans.edit', $layanan) }}" id="edit-layanan-{{ $layanan->id }}" class="btn btn-warning">{{ __('layanan.edit') }}</a>
+                    <a href="{{ route('layanans.edit', $layanan) }}" id="edit-layanan-{{ $layanan->id }}" class="btn btn-warning">Ubah Layanan</a>
                 @endcan
-                <a href="{{ route('layanans.index') }}" class="btn btn-link">{{ __('layanan.back_to_index') }}</a>
+                <a href="{{ route('layanans.index') }}" class="btn btn-link">Kembali</a>
             </div>
         </div>
     </div>

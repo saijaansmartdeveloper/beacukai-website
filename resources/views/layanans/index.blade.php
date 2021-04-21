@@ -1,15 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('title', __('layanan.list'))
+@section('title', "Daftar Layanan")
 
 @section('content')
 <div class="mb-3">
-    <div class="float-right">
+    <div class="">
         @can('create', new App\Models\Layanan)
-            <a href="{{ route('layanans.create') }}" class="btn btn-success">{{ __('layanan.create') }}</a>
+            <a href="{{ route('layanans.create') }}" class="btn btn-success">Tambah Layanan</a>
         @endcan
     </div>
-    <h1 class="page-title">{{ __('layanan.list') }} <small>{{ __('app.total') }} : {{ $layanans->total() }} {{ __('layanan.layanan') }}</small></h1>
 </div>
 
 <div class="row">
@@ -25,31 +24,39 @@
                     <a href="{{ route('layanans.index') }}" class="btn btn-link">{{ __('app.reset') }}</a>
                 </form>
             </div>
-            <table class="table table-sm table-responsive-sm table-hover">
-                <thead>
+            <div class="card-body table-responsive-sm ">
+                <table class="table table-sm table-hover table-striped">
+                    <thead>
                     <tr>
-                        <th class="text-center">{{ __('app.table_no') }}</th>
-                        <th>{{ __('layanan.title') }}</th>
-                        <th>{{ __('layanan.description') }}</th>
+                        <th class="text-center">No</th>
+                        <th>Nama Layanan</th>
+                        <th>Jenis Layanan</th>
+                        <th>Estimasi Layanan</th>
+                        <th>Waktu Layanan</th>
+                        <th>Biaya Layanan</th>
                         <th class="text-center">{{ __('app.action') }}</th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     @foreach($layanans as $key => $layanan)
-                    <tr>
-                        <td class="text-center">{{ $layanans->firstItem() + $key }}</td>
-                        <td>{!! $layanan->title_link !!}</td>
-                        <td>{{ $layanan->description }}</td>
-                        <td class="text-center">
-                            @can('view', $layanan)
-                                <a href="{{ route('layanans.show', $layanan) }}" id="show-layanan-{{ $layanan->id }}">{{ __('app.show') }}</a>
-                            @endcan
-                        </td>
-                    </tr>
+                        <tr>
+                            <td class="text-center">{{ $layanans->firstItem() + $key }}</td>
+                            <td>{!! $layanan->title_link !!}</td>
+                            <td>{{ $layanan->jenis_layanan }}</td>
+                            <td>{{ $layanan->estimasi_layanan }}</td>
+                            <td>{{ $layanan->waktu_layanan }}</td>
+                            <td class="text-center">{{ $layanan->biaya_layanan }}</td>
+                            <td class="text-center">
+                                @can('view', $layanan)
+                                    <a href="{{ route('layanans.edit', $layanan) }}" id="edit-layanan-{{ $layanan->id }}" class="btn btn-success btn-sm">Ubah</a>
+                                @endcan
+                            </td>
+                        </tr>
                     @endforeach
-                </tbody>
-            </table>
-            <div class="card-body">{{ $layanans->appends(Request::except('page'))->render() }}</div>
+                    </tbody>
+                </table>
+                {{ $layanans->appends(Request::except('page'))->render() }}
+            </div>
         </div>
     </div>
 </div>

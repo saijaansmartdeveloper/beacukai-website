@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-group">
                         <label for="content_page" class="form-label">Isi Halaman</label>
-                        <textarea id="content_page" class="form-control{{ $errors->has('content_page') ? ' is-invalid' : '' }}" name="content_page" rows="10">{{ old('content_page') }}</textarea>
+                        <textarea id="summernote" class="form-control{{ $errors->has('content_page') ? ' is-invalid' : '' }}" name="content_page" rows="10">{{ old('content_page') }}</textarea>
                         {!! $errors->first('content_page', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                     </div>
                     <div class="form-group">
@@ -37,4 +37,13 @@
         </div>
     </div>
 </div>
+@endsection
+
+
+@section('js')
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script>
 @endsection

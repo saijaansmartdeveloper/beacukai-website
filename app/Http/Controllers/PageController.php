@@ -47,6 +47,7 @@ class PageController extends Controller
 
         $newPage = $request->validate([
             'name_page'         => 'required|max:60',
+            'slug'              => 'nullable|max:255',
             'description_page'  => 'nullable|max:255',
             'content_page'      => 'nullable'
         ]);
@@ -100,6 +101,7 @@ class PageController extends Controller
 
         $pageData = $request->validate([
             'name_page'         => 'required|max:60',
+            'slug'              => 'nullable|max:255',
             'description_page'  => 'nullable|max:255',
             'content_page'      => 'nullable'
         ]);

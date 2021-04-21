@@ -49,9 +49,7 @@
                                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">TENTANG KAMI<span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="#portofolio" class="page-scroll" >TUGAS KAMI</a></li>
-                                        <li><a href=bckotabaru/comingsoon >GALERI</a></li>
                                         <li><a class="page-scroll" href="#team" >HASIL SURVEY</a></li>
-                                        <li><a href=bckotabaru/comingsoon >ALUR PROSES BISNIS</a></li>
                                     </ul>
                                 </li>
 

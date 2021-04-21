@@ -10,7 +10,7 @@ class Page extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name_page', 'description_page', 'content_page', 'image_page', 'creator_id'];
+    protected $fillable = ['name_page', 'slug','description_page', 'content_page', 'image_page', 'creator_id'];
 
     public function getTitleLinkAttribute()
     {
