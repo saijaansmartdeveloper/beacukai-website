@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->string('slug');
             $table->string('title_post', 60);
-            $table->text('content_post')->nullable();
+            $table->longText('content_post')->nullable();
             $table->string('image_post')->nullable();
             $table->integer('priority')->nullable()->default(1);
             $table->foreignId('creator_id')->constrained('users')->onDelete('restrict');

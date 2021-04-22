@@ -210,7 +210,7 @@
     <!-- End Team Area -->
 @endif
 
-@if (@$kurs)
+@if (count($kurs) != 0)
     <!-- Start team Area -->
     <div id="kurs" class="faq-area area-padding">
         <div class="container">
@@ -590,8 +590,8 @@
                         <div class="single-icon">
                             <i class="fa fa-mobile"></i>
                             <p>
-                                Telpon: 0812-5825-7525<br>
-                                <span>Buka 24 Jam</span>
+                                Telpon: {!! ($footer->telp_instansi) ?? '' !!}<br>
+                                <span>{!! ($footer->jam_kerja_instansi) ?? '' !!}</span>
                             </p>
                         </div>
                     </div>
@@ -602,8 +602,8 @@
                         <div class="single-icon">
                             <i class="fa fa-envelope-o"></i>
                             <p>
-                                Email: kpbc_kotabaru@yahoo.com<br>
-                                <span>Web: www.bckotabaru.net</span>
+                                Email: {!! ($footer->email_instansi) ?? '' !!}<br>
+                                <span>Web: {!! ($footer->web_instansi) ?? '' !!}</span>
                             </p>
                         </div>
                     </div>
@@ -614,8 +614,7 @@
                         <div class="single-icon">
                             <i class="fa fa-map-marker"></i>
                             <p>
-                                Alamat: Jl. Pangeran Kesuma Negara 12 B<br>
-                                <span>Kotabaru, Kalimantan Selatan 72111</span>
+                                Alamat: {!! ($footer->alamat_instansi) ?? '' !!}
                             </p>
                         </div>
                     </div>
@@ -639,28 +638,15 @@
                                 <h2><span>BC</span>Kotabaru</h2>
                             </div>
 
-                            <p style="text-align: justify;">Kantor Pengawasan dan Pelayanan Bea dan Cukai Tipe Madya
-                                Pabean C Kotabaru berada di bawah Kantor Wilayah DJBC Kalimantan Bagian Selatan,
-                                merupakan salah satu unit kerja vertikal di bawah Direktorat Jenderal Bea dan Cukai pada
-                                Kementerian Keuangan Republik Indonesia.</p>
+                            <p style="text-align: justify;">{!! ($footer->deskripsi_instansi) ?? '' !!}</p>
                             <div class="footer-icons">
                                 <ul>
+                                    @foreach ($socials as $item)
                                     <li>
-                                        <a href="https://id-id.facebook.com/pages/category/Government-Organization/Bea-Cukai-Kotabaru-1436837939680697/"
-                                           target="_blank"><i class="fa fa-facebook"></i></a>
+                                        <a href="{{$item->link_social}}"
+                                           target="_blank">{{$item->icon_social ?? $item->title_social}}</a>
                                     </li>
-                                    <li>
-                                        <a href="https://twitter.com/bckotabaru?lang=en" target="_blank"><i
-                                                class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.youtube.com/channel/UCfLGTQ6CEgLIa1DstHfLAzA"
-                                           target="_blank"><i class="fa fa-youtube"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/beacukai.kotabaru/?hl=en" target="_blank"><i
-                                                class="fa fa-instagram"></i></a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -672,9 +658,9 @@
                         <div class="footer-head">
                             <h4>Informasi</h4>
                             <div class="footer-contacts">
-                                <p><span>Tel:</span> 0812-5825-7525</p>
-                                <p><span>Email:</span> kpbc_kotabaru@yahoo.com</p>
-                                <p><span>Jam Kerja:</span> 24 Jam</p>
+                                <p><span>Tel:</span> {!! ($footer->telp_instansi) ?? '' !!}</p>
+                                <p><span>Email:</span> {!! ($footer->email_instansi) ?? '' !!}</p>
+                                <p><span>Jam Kerja:</span> {!! ($footer->jam_kerja_instansi) ?? '' !!}</p>
                             </div>
                             <h4>Jumlah Pengunjung</h4>
                             <div class="footer-contacts">
@@ -689,7 +675,7 @@
                     <div class="footer-content">
                         <div class="footer-head">
                             <h4>Peta Lokasi</h4>
-                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.4624998824697!2d116.22745961414053!3d-3.2344805976450886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2def31e82351e6d3%3A0x5f863fc0fa076e24!2sKANTOR%20BEA%20CUKAI%20KOTABARU!5e0!3m2!1sid!2sid!4v1574393905911!5m2!1sid!2sid" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                            {!! ($footer->maps_instansi) ?? '' !!}
                         </div>
                     </div>
                 </div>

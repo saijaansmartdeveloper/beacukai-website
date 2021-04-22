@@ -16,8 +16,8 @@ class FooterController extends Controller
     public function index(Request $request)
     {
         $footerQuery = Footer::query();
-        $footerQuery->where('title', 'like', '%'.$request->get('q').'%');
-        $footerQuery->orderBy('title');
+        $footerQuery->where('nama_instansi', 'like', '%'.$request->get('q').'%');
+        $footerQuery->orderBy('nama_instansi');
         $footers = $footerQuery->paginate(25);
 
         return view('footers.index', compact('footers'));
@@ -46,9 +46,16 @@ class FooterController extends Controller
         $this->authorize('create', new Footer);
 
         $newFooter = $request->validate([
-            'title'       => 'required|max:60',
-            'description' => 'nullable|max:255',
+            'nama_instansi'         => 'required|max:60',
+            'deskripsi_instansi'    => 'nullable',
+            'email_instansi'        => 'nullable',
+            'web_instansi'          => 'nullable',
+            'telp_instansi'         => 'nullable',
+            'alamat_instansi'       => 'nullable',
+            'maps_instansi'         => 'nullable',
+            'jam_kerja_instansi'    => 'nullable',
         ]);
+
         $newFooter['creator_id'] = auth()->id();
 
         $footer = Footer::create($newFooter);
@@ -92,8 +99,14 @@ class FooterController extends Controller
         $this->authorize('update', $footer);
 
         $footerData = $request->validate([
-            'title'       => 'required|max:60',
-            'description' => 'nullable|max:255',
+            'nama_instansi'         => 'required|max:60',
+            'deskripsi_instansi'    => 'nullable',
+            'email_instansi'        => 'nullable',
+            'web_instansi'          => 'nullable',
+            'telp_instansi'         => 'nullable',
+            'alamat_instansi'       => 'nullable',
+            'maps_instansi'         => 'nullable',
+            'jam_kerja_instansi'    => 'nullable',
         ]);
         $footer->update($footerData);
 

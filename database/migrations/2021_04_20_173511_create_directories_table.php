@@ -15,8 +15,11 @@ class CreateDirectoriesTable extends Migration
     {
         Schema::create('directories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title', 60);
-            $table->string('description')->nullable();
+            $table->string('jenis_peraturan')->nullable();
+            $table->string('nomor_peraturan')->nullable();
+            $table->string('tentang_peraturan')->nullable();
+            $table->string('tahun_peraturan')->nullable();
+            $table->string('file_peraturan')->nullable();
             $table->foreignId('creator_id')->constrained('users')->onDelete('restrict');
             $table->timestamps();
         });

@@ -59,7 +59,7 @@
                             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('directories') }}">Direktori Peraturan</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('kotabaru_links') }}">BC Kotabaru Link</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="{{ url('socials') }}">Sosial Media</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('footers') }}">Profile Instansi</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('footers/1') }}">Profile Instansi</a></li>
 
                         </ul>
                     </li>

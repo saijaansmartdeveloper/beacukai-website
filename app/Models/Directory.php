@@ -10,7 +10,14 @@ class Directory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'creator_id'];
+    protected $fillable = [
+        'jenis_peraturan',
+        'nomor_peraturan',
+        'tentang_peraturan',
+        'tahun_peraturan',
+        'file_peraturan',
+        'creator_id'
+    ];
 
     public function getTitleLinkAttribute()
     {

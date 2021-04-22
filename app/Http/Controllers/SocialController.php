@@ -16,8 +16,8 @@ class SocialController extends Controller
     public function index(Request $request)
     {
         $socialQuery = Social::query();
-        $socialQuery->where('title', 'like', '%'.$request->get('q').'%');
-        $socialQuery->orderBy('title');
+        $socialQuery->where('title_social', 'like', '%'.$request->get('q').'%');
+        $socialQuery->orderBy('title_social');
         $socials = $socialQuery->paginate(25);
 
         return view('socials.index', compact('socials'));
@@ -46,9 +46,12 @@ class SocialController extends Controller
         $this->authorize('create', new Social);
 
         $newSocial = $request->validate([
-            'title'       => 'required|max:60',
-            'description' => 'nullable|max:255',
+            'title_social' => 'required|max:60',
+            'description_social' => 'nullable|max:255',
+            'icon_social' => 'nullable|max:255',
+            'link_social' => 'nullable|max:255',
         ]);
+
         $newSocial['creator_id'] = auth()->id();
 
         $social = Social::create($newSocial);
@@ -92,8 +95,10 @@ class SocialController extends Controller
         $this->authorize('update', $social);
 
         $socialData = $request->validate([
-            'title'       => 'required|max:60',
-            'description' => 'nullable|max:255',
+            'title_social' => 'required|max:60',
+            'description_social' => 'nullable|max:255',
+            'icon_social' => 'nullable|max:255',
+            'link_social' => 'nullable|max:255',
         ]);
         $social->update($socialData);
 

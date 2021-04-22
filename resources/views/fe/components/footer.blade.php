@@ -26,11 +26,9 @@
         dots: true,
         autoplay: true,
         responsive: {
-
             0 : {
                 items : 1
             },
-
         }
     });
 </script>

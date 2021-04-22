@@ -15,9 +15,10 @@ class DirectoryController extends Controller
      */
     public function index(Request $request)
     {
+        $search = $request->type ?? 'tentang_peraturan';
         $directoryQuery = Directory::query();
-        $directoryQuery->where('title', 'like', '%'.$request->get('q').'%');
-        $directoryQuery->orderBy('title');
+        $directoryQuery->where($search, 'like', '%'.$request->get('q').'%');
+        $directoryQuery->orderBy('jenis_peraturan');
         $directories = $directoryQuery->paginate(25);
 
         return view('directories.index', compact('directories'));
@@ -32,7 +33,9 @@ class DirectoryController extends Controller
     {
         $this->authorize('create', new Directory);
 
-        return view('directories.create');
+        $jenis = Directory::select('jenis_peraturan')->distinct()->get() ?? [];
+
+        return view('directories.create', compact('jenis'));
     }
 
     /**
@@ -46,9 +49,17 @@ class DirectoryController extends Controller
         $this->authorize('create', new Directory);
 
         $newDirectory = $request->validate([
-            'title'       => 'required|max:60',
-            'description' => 'nullable|max:255',
+            'jenis_peraturan' => 'required|max:60',
+            'nomor_peraturan' => 'nullable|max:255',
+            'tentang_peraturan' => 'nullable|max:255',
+            'tahun_peraturan' => 'nullable|max:255'
         ]);
+
+        if ($request->hasFile('file_peraturan')) {
+            $filename = preg_replace("/[^a-zA-Z0-9]/", "", $request->nomor_peraturan) . '_' . time() . '.' . $request->file('file_peraturan')->extension();
+            $newDirectory['file_peraturan'] = $request->file('file_peraturan')->storeAs('file_peraturan', $filename, 'public');
+        }
+
         $newDirectory['creator_id'] = auth()->id();
 
         $directory = Directory::create($newDirectory);

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', __('footer.list'))
 
@@ -9,7 +9,6 @@
             <a href="{{ route('footers.create') }}" class="btn btn-success">{{ __('footer.create') }}</a>
         @endcan
     </div>
-    <h1 class="page-title">{{ __('footer.list') }} <small>{{ __('app.total') }} : {{ $footers->total() }} {{ __('footer.footer') }}</small></h1>
 </div>
 
 <div class="row">

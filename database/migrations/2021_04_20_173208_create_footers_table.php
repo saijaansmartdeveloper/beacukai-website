@@ -15,8 +15,14 @@ class CreateFootersTable extends Migration
     {
         Schema::create('footers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title', 60);
-            $table->string('description')->nullable();
+            $table->string('nama_instansi', 60);
+            $table->text('deskripsi_instansi', 60);
+            $table->string('email_instansi')->nullable();
+            $table->string('web_instansi')->nullable();
+            $table->string('telp_instansi')->nullable();
+            $table->string('alamat_instansi')->nullable();
+            $table->text('maps_instansi')->nullable();
+            $table->string('jam_kerja_instansi')->nullable();
             $table->foreignId('creator_id')->constrained('users')->onDelete('restrict');
             $table->timestamps();
         });

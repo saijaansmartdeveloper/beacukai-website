@@ -1,15 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('title', __('social.list'))
+@section('title', "Daftar Link Sosial Media")
 
 @section('content')
 <div class="mb-3">
-    <div class="float-right">
+    <div>
         @can('create', new App\Models\Social)
-            <a href="{{ route('socials.create') }}" class="btn btn-success">{{ __('social.create') }}</a>
+            <a href="{{ route('socials.create') }}" class="btn btn-success">Tambah Link Sosial Media</a>
         @endcan
     </div>
-    <h1 class="page-title">{{ __('social.list') }} <small>{{ __('app.total') }} : {{ $socials->total() }} {{ __('social.social') }}</small></h1>
 </div>
 
 <div class="row">
@@ -25,31 +24,38 @@
                     <a href="{{ route('socials.index') }}" class="btn btn-link">{{ __('app.reset') }}</a>
                 </form>
             </div>
-            <table class="table table-sm table-responsive-sm table-hover">
-                <thead>
-                    <tr>
-                        <th class="text-center">{{ __('app.table_no') }}</th>
-                        <th>{{ __('social.title') }}</th>
-                        <th>{{ __('social.description') }}</th>
-                        <th class="text-center">{{ __('app.action') }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($socials as $key => $social)
-                    <tr>
-                        <td class="text-center">{{ $socials->firstItem() + $key }}</td>
-                        <td>{!! $social->title_link !!}</td>
-                        <td>{{ $social->description }}</td>
-                        <td class="text-center">
-                            @can('view', $social)
-                                <a href="{{ route('socials.show', $social) }}" id="show-social-{{ $social->id }}">{{ __('app.show') }}</a>
-                            @endcan
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            <div class="card-body">{{ $socials->appends(Request::except('page'))->render() }}</div>
+
+            <div class="card-body">
+                <table class="table table-sm table-responsive-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">{{ __('app.table_no') }}</th>
+                            <th>Nama</th>
+                            <th>Deskripsi</th>
+                            <th>Icon</th>
+                            <th>Link</th>
+                            <th class="text-center">{{ __('app.action') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($socials as $key => $social)
+                        <tr>
+                            <td class="text-center">{{ $socials->firstItem() + $key }}</td>
+                            <td>{!! $social->title_link !!}</td>
+                            <td>{{ $social->description_social }}</td>
+                            <td>{{ $social->icon_social }}</td>
+                            <td>{{ $social->link_social }}</td>
+                            <td class="text-center">
+                                @can('view', $social)
+                                    <a href="{{ route('socials.show', $social) }}" id="show-social-{{ $social->id }}">{{ __('app.show') }}</a>
+                                @endcan
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{ $socials->appends(Request::except('page'))->render() }}
+            </div>
         </div>
     </div>
 </div>
