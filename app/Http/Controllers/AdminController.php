@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Directory;
 use App\Models\Kurs;
 use App\Models\Page;
 use App\Models\Post;
@@ -72,5 +73,31 @@ class AdminController extends Controller
         ];
 
         return view('single-post', $data);
+    }
+
+    public function peraturan (Request $request, $q = null)
+    {
+
+        $search = $request->type ?? 'tentang_peraturan';
+        $directoryQuery = Directory::query();
+        $directoryQuery->where($search, 'like', '%'.$request->get('q').'%');
+        $directoryQuery->orderBy('jenis_peraturan');
+        $peraturan = $directoryQuery->paginate(25);
+
+        $data = [
+            'banners'       => Banner::orderBy('priority_banner', 'asc')->where('is_active_banner', '1')->get() ?? [],
+            'profil'        => Page::where('name_page', 'TENTANG BC KOTABARU')->first() ?? [],
+            'siring'        => Siring::orderBy('is_priority', 'asc')->get() ?? [],
+            'layanan'       => Layanan::get() ?? [],
+            'kurs'          => Kurs::orderBy('id', 'asc')->get() ?? [],
+            'survey'        => Survey::where('is_active_survey', 1)->first(),
+            'media'         => KotabaruLink::get() ?? [],
+            'testimonis'    => Testimoni::get() ?? [],
+            'posts'         => Post::orderBy('created_at', 'desc')->orderBy('priority', 'asc')->take(3)->get(),
+            'footer'        => [],
+            'peraturan'     => $peraturan
+        ];
+
+        return view('peraturan', $data);
     }
 }

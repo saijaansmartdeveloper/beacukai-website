@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AdminController::class, 'isGUest']);
 Route::get('page/{slug}', [App\Http\Controllers\AdminController::class, 'single_page'])->name('page.single');
 Route::get('post/{slug}', [App\Http\Controllers\AdminController::class, 'single_post'])->name('post.single');
+Route::get('peraturan', [App\Http\Controllers\AdminController::class, 'peraturan'])->name('peraturan');
 
 
 Auth::routes();
