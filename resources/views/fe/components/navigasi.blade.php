@@ -44,7 +44,7 @@
                                     <a class="page-scroll" href="#pricing">PELAYANAN</a>
                                 </li>
                                 <li>
-                                    <a class="page-scroll" href="https://drive.google.com/drive/folders/1IcGJczgNNqRUMSIxyGo2AUNHwibDMqfg" target="_blank">PERATURAN</a>
+                                    <a class="page-scroll" href="{{ url('peraturan') }}" target="_blank">PERATURAN</a>
                                 </li>
                                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">TENTANG KAMI<span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
