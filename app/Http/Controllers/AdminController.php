@@ -29,7 +29,7 @@ class AdminController extends Controller
             'survey'        => Survey::where('is_active_survey', 1)->first(),
             'media'         => KotabaruLink::get() ?? [],
             'testimonis'    => Testimoni::get() ?? [],
-            'posts'         => Post::orderBy('created_at', 'desc')->take(3)->get(),
+            'posts'         => Post::orderBy('created_at', 'desc')->where('priority', 'Berita Terkini')->get(),
             'socials'       => Social::get() ?? [],
             'footer'        => Footer::where('nama_instansi', 'BCKotabaru')->first(),
         ];
@@ -48,7 +48,7 @@ class AdminController extends Controller
             'survey'        => Survey::where('is_active_survey', 1)->first(),
             'media'         => KotabaruLink::get() ?? [],
             'testimonis'    => Testimoni::get() ?? [],
-            'posts'         => Post::orderBy('created_at', 'desc')->take(3)->get(),
+            'posts'         => Post::orderBy('created_at', 'desc')->where('priority', 'Berita Terkini')->get(),
             'footer'        => [],
             'page'          => Page::where('slug', $slug)->firstOrFail()
         ];
@@ -67,12 +67,29 @@ class AdminController extends Controller
             'survey'        => Survey::where('is_active_survey', 1)->first(),
             'media'         => KotabaruLink::get() ?? [],
             'testimonis'    => Testimoni::get() ?? [],
-            'posts'         => Post::orderBy('created_at', 'desc')->orderBy('priority', 'asc')->take(3)->get(),
+            'posts'         => Post::orderBy('created_at', 'desc')->where('priority', 'Berita Terkini')->get(),
             'footer'        => [],
             'post'          => Post::where('slug', $slug)->first()
         ];
 
         return view('single-post', $data);
+    }
+
+    public function list_post()
+    {
+        $data = [
+            'banners'       => Banner::orderBy('priority_banner', 'asc')->where('is_active_banner', '1')->get() ?? [],
+            'profil'        => Page::where('name_page', 'TENTANG BC KOTABARU')->first() ?? [],
+            'siring'        => Siring::orderBy('is_priority', 'asc')->get() ?? [],
+            'layanan'       => Layanan::get() ?? [],
+            'kurs'          => Kurs::orderBy('id', 'asc')->get() ?? [],
+            'survey'        => Survey::where('is_active_survey', 1)->first(),
+            'media'         => KotabaruLink::get() ?? [],
+            'testimonis'    => Testimoni::get() ?? [],
+            'posts'         => Post::orderBy('created_at', 'desc')->get(),
+        ];
+
+        return view('posts.list', $data);
     }
 
     public function peraturan (Request $request, $q = null)
@@ -93,7 +110,7 @@ class AdminController extends Controller
             'survey'        => Survey::where('is_active_survey', 1)->first(),
             'media'         => KotabaruLink::get() ?? [],
             'testimonis'    => Testimoni::get() ?? [],
-            'posts'         => Post::orderBy('created_at', 'desc')->orderBy('priority', 'asc')->take(3)->get(),
+            'posts'         => Post::orderBy('created_at', 'desc')->where('priority', 'Berita Terkini')->get(),
             'footer'        => [],
             'peraturan'     => $peraturan
         ];

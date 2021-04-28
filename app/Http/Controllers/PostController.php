@@ -55,6 +55,7 @@ class PostController extends Controller
         $newPost = $request->validate([
             'title_post'        => 'required|max:60',
             'content_post'      => 'nullable',
+            'priority'          => 'nullable'
         ]);
 
         if ($request->hasFile('image_post')) {

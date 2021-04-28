@@ -218,6 +218,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="section-headline text-center">
                         <h2>Kurs</h2>
+                        <p><i>{{ $kurs->firstItem->nama_mata_uang }}</i></p>
                     </div>
                 </div>
             </div>
@@ -553,6 +554,11 @@
                     <!-- End Left Blog-->
                 @endforeach
             </div>
+            @if (count($posts) >= 3)
+            <div class="row" style="padding-top: 40px">
+                <a href="{{ route('post.list') }}" class="btn btn-block ready-btn" style="color: #333; border-color: #eee;">Lihat Semua Berita</a>
+            </div>
+            @endif
         </div>
     </div>
 </div>

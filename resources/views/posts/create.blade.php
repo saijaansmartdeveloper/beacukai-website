@@ -21,7 +21,10 @@
                     </div>
                     <div class="form-group">
                         <label for="priority" class="form-label">Prioritas <span class="form-required">*</span></label>
-                        <input id="priority" type="text" class="form-control{{ $errors->has('title_post') ? ' is-invalid' : '' }}" name="priority" value="1" min="1" required>
+                        <input id="priority" type="text" list="berita_terkini" class="form-control{{ $errors->has('title_post') ? ' is-invalid' : '' }}" name="priority" required>
+                        <datalist id="berita_terkini">
+                            <option value="Berita Terkini">Berita Terkini</option>
+                        </datalist>
                         {!! $errors->first('priority', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                     </div>
                     <div class="form-group">

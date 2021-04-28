@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('title_post', 60);
             $table->longText('content_post')->nullable();
             $table->string('image_post')->nullable();
-            $table->integer('priority')->nullable()->default(1);
+            $table->string('priority')->nullable();
             $table->foreignId('creator_id')->constrained('users')->onDelete('restrict');
             $table->timestamps();
         });

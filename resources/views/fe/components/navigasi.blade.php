@@ -25,7 +25,7 @@
                         <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="active">
-                                    <a class="page-scroll" href="#home">HOME</a>
+                                    <a class="page-scroll" href="{{ url('/') }}">HOME</a>
                                 </li>
                                 <li>
                                 <li class="dropdown">

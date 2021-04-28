@@ -160,7 +160,7 @@
                                     <a href="{{url('post/' . $item->slug)}}">{{$item->title_post}}</a>
                                 </h4>
                                 <p style="text-align: justify;">
-                                    {{ substr($item->content_post, 1, 200) }} ...
+                                    {!! Str::limit(strip_tags($item->content_post), 200, '...') !!}
                                 </p>
                             </div>
                             <span>

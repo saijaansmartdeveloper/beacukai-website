@@ -42,7 +42,9 @@
                         <tr>
                             <td class="text-center">{{ $posts->firstItem() + $key }}</td>
                             <td>{!! $post->title_link !!}</td>
-                            <td>{!! substr($post->content_post, 0, 100) !!}</td>
+                            <td>
+                                {!! Str::limit(strip_tags($post->content_post), 200, '...') !!}
+                            </td>
                             <td>{!! $post->priority !!}</td>
                             <td class="text-center">
                                 @can('view', $post)
