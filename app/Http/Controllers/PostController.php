@@ -62,7 +62,7 @@ class PostController extends Controller
             $newPost['image_post']  = $request->image_post->storeAs('posts', $filename, 'public');
         }
 
-        $newPost['slug']       = Str::slug($request->title_post);
+        $newPost['slug']       = Str::slug(htmlspecialchars($request->title_post));
         $newPost['creator_id'] = auth()->id();
 
         $post = Post::create($newPost);
@@ -116,7 +116,7 @@ class PostController extends Controller
             $postData['image_post']  = $request->image_post->storeAs('posts', $filename, 'public');
         }
 
-        $postData['slug']       = Str::slug($request->title_post);
+        $postData['slug']       = Str::slug(htmlspecialchars($request->title_post));
 
         $post->update($postData);
 
