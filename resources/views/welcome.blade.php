@@ -218,7 +218,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="section-headline text-center">
                         <h2>Kurs</h2>
-                        <p><i>{{ $kurs->firstItem->nama_mata_uang }}</i></p>
+                        <p><i>Periode Berlaku : {{ $kurs->first()->tanggal_berlaku }}</i></p>
                     </div>
                 </div>
             </div>
