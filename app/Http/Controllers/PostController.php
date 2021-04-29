@@ -55,7 +55,8 @@ class PostController extends Controller
         $newPost = $request->validate([
             'title_post'        => 'required|max:60',
             'content_post'      => 'nullable',
-            'priority'          => 'nullable'
+            'priority'          => 'nullable',
+            'tanggal_post'      => 'nullable'
         ]);
 
         if ($request->hasFile('image_post')) {
@@ -109,7 +110,8 @@ class PostController extends Controller
         $postData = $request->validate([
             'title_post'        => 'required|max:60',
             'content_post'      => 'nullable',
-            'priority'          => 'nullable'
+            'priority'          => 'nullable',
+            'tanggal_post'      => 'nullable'
         ]);
 
         if ($request->hasFile('image_post')) {
