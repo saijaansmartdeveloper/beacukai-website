@@ -15,7 +15,7 @@
     </div>
     <div class="footer-title">
         <div class="col-12">
-            <p>Tanggal {!! $post->created_at !!}</p>
+            <p>Tanggal {!! $post->tanggal_post !!}</p>
         </div>
     </div>
 </div>
@@ -142,8 +142,8 @@
                                     <a href="#">13 comments</a>
                                 </span> --}}
                                 <span class="date-type">
-                            <i class="fa fa-calendar"></i> {{$item->created_at->format('Y m d / h:i:s')}}
-                        </span>
+                                    <i class="fa fa-calendar"></i> {{ $item->tanggal_post }}
+                                </span>
                             </div>
                             <div class="blog-text">
                                 <h4>
