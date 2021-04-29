@@ -9,6 +9,7 @@ use App\Models\Post;
 use App\Models\Siring;
 use App\Models\Survey;
 use App\Models\Testimoni;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -63,7 +64,7 @@ class PostController extends Controller
             $filename               = time() . '.' . $request->image_post->extension();
             $newPost['image_post']  = $request->image_post->storeAs('posts', $filename, 'public');
         }
-
+        $newPost['tanggal_post'] = Carbon::createFromFormat('Y-m-d H', $request->tanggal_post)->toDateTimeString();
         $newPost['slug']       = Str::slug(htmlspecialchars($request->title_post));
         $newPost['creator_id'] = auth()->id();
 
@@ -113,6 +114,9 @@ class PostController extends Controller
             'priority'          => 'nullable',
             'tanggal_post'      => 'nullable'
         ]);
+
+        $postData['tanggal_post'] = Carbon::createFromFormat('Y-m-d H', $request->tanggal_post)->toDateTimeString();
+
 
         if ($request->hasFile('image_post')) {
             @unlink('storage/' . $post->image_post);
