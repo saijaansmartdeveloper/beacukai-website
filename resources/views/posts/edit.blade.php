@@ -38,6 +38,11 @@
                         {!! $errors->first('title_post', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                     </div>
                     <div class="form-group">
+                        <label for="tanggal_post" class="form-label">Tanggal Post <span class="form-required">*</span></label>
+                        <input id="tanggal_post" type="date" class="form-control{{ $errors->has('tanggal_post') ? ' is-invalid' : '' }}" name="tanggal_post" value="{{ old('tanggal_post',$post->tanggal_post) }}" required>
+                        {!! $errors->first('tanggal_post', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+                    </div>
+                    <div class="form-group">
                         <label for="description" class="form-label">Isi Post</label>
                         <textarea id="summernote" class="form-control{{ $errors->has('content_post') ? ' is-invalid' : '' }}" name="content_post" rows="8">{{ old('content_post', $post->content_post) }}</textarea>
                         {!! $errors->first('description', '<span class="invalid-feedback" role="alert">:message</span>') !!}

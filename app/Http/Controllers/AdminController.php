@@ -29,7 +29,7 @@ class AdminController extends Controller
             'survey'        => Survey::where('is_active_survey', 1)->first(),
             'media'         => KotabaruLink::get() ?? [],
             'testimonis'    => Testimoni::get() ?? [],
-            'posts'         => Post::orderBy('created_at', 'desc')->where('priority', 'Berita Terkini')->get(),
+            'posts'         => Post::orderBy('tanggal_post', 'desc')->where('priority', 'Berita Terkini')->get(),
             'socials'       => Social::get() ?? [],
             'footer'        => Footer::where('nama_instansi', 'BCKotabaru')->first(),
         ];
@@ -48,7 +48,7 @@ class AdminController extends Controller
             'survey'        => Survey::where('is_active_survey', 1)->first(),
             'media'         => KotabaruLink::get() ?? [],
             'testimonis'    => Testimoni::get() ?? [],
-            'posts'         => Post::orderBy('created_at', 'desc')->where('priority', 'Berita Terkini')->get(),
+            'posts'         => Post::orderBy('tanggal_post', 'desc')->where('priority', 'Berita Terkini')->get(),
             'footer'        => [],
             'page'          => Page::where('slug', $slug)->firstOrFail()
         ];
@@ -67,7 +67,7 @@ class AdminController extends Controller
             'survey'        => Survey::where('is_active_survey', 1)->first(),
             'media'         => KotabaruLink::get() ?? [],
             'testimonis'    => Testimoni::get() ?? [],
-            'posts'         => Post::orderBy('created_at', 'desc')->where('priority', 'Berita Terkini')->get(),
+            'posts'         => Post::orderBy('tanggal_post', 'desc')->where('priority', 'Berita Terkini')->get(),
             'footer'        => [],
             'post'          => Post::where('slug', $slug)->first()
         ];
@@ -86,7 +86,7 @@ class AdminController extends Controller
             'survey'        => Survey::where('is_active_survey', 1)->first(),
             'media'         => KotabaruLink::get() ?? [],
             'testimonis'    => Testimoni::get() ?? [],
-            'posts'         => Post::orderBy('created_at', 'desc')->get(),
+            'posts'         => Post::orderBy('tanggal_post', 'desc')->get(),
         ];
 
         return view('posts.list', $data);

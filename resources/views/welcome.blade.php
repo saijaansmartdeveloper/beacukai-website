@@ -534,7 +534,7 @@
                                     <a href="#">13 comments</a>
                                 </span> --}}
                                 <span class="date-type">
-                            <i class="fa fa-calendar"></i> {{$item->created_at->format('Y m d / h:i:s')}}
+                            <i class="fa fa-calendar"></i> {{$item->tanggal_post->format('Y m d / h:i:s')}}
                         </span>
                             </div>
                             <div class="blog-text">

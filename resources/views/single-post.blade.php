@@ -11,7 +11,7 @@
             {!! $post->content_post !!}
         </div>
         <hr>
-        <p>Tanggal dipublikasikan : {!! $post->created_at !!}</p>
+        <p>Tanggal dipublikasikan : {!! $post->tanggal_post !!}</p>
     </div>
 </section>
 {{--<img src="{{asset('storage/' . )}}" alt="" style="width: 100%; margin-top: 11.6vh" class="jumbotron-fluid" />--}}
@@ -154,7 +154,7 @@
                                     <a href="#">13 comments</a>
                                 </span> --}}
                                 <span class="date-type">
-                            <i class="fa fa-calendar"></i> {{$item->created_at->format('Y m d / h:i:s')}}
+                            <i class="fa fa-calendar"></i> {{$item->tanggal_post->format('Y m d / h:i:s')}}
                         </span>
                             </div>
                             <div class="blog-text">
