@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group">
                         <label for="priority" class="form-label">Prioritas <span class="form-required">*</span></label>
-                        <input id="priority" type="text" list="berita_terkini" class="form-control{{ $errors->has('title_post') ? ' is-invalid' : '' }}" name="priority" required>
+                        <input id="priority" type="text" list="berita_terkini" class="form-control{{ $errors->has('title_post') ? ' is-invalid' : '' }}" name="priority">
                         <datalist id="berita_terkini">
                             <option value="Berita Terkini">Berita Terkini</option>
                         </datalist>

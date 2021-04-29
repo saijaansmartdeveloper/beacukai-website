@@ -16,6 +16,7 @@ class Post extends Model
         'image_post',
         'slug',
         'priority',
+        'tanggal_post',
         'creator_id'
     ];
 

@@ -64,7 +64,7 @@ class PostController extends Controller
             $filename               = time() . '.' . $request->image_post->extension();
             $newPost['image_post']  = $request->image_post->storeAs('posts', $filename, 'public');
         }
-        $newPost['tanggal_post'] = Carbon::createFromFormat('Y-m-d H', $request->tanggal_post)->toDateTimeString();
+
         $newPost['slug']       = Str::slug(htmlspecialchars($request->title_post));
         $newPost['creator_id'] = auth()->id();
 
@@ -115,9 +115,6 @@ class PostController extends Controller
             'tanggal_post'      => 'nullable'
         ]);
 
-        $postData['tanggal_post'] = Carbon::createFromFormat('Y-m-d H', $request->tanggal_post)->toDateTimeString();
-
-
         if ($request->hasFile('image_post')) {
             @unlink('storage/' . $post->image_post);
             $filename               = time() . '.' . $request->image_post->extension();
@@ -125,7 +122,7 @@ class PostController extends Controller
         }
 
         $postData['slug']       = Str::slug(htmlspecialchars($request->title_post));
-
+        // dd($postData);
         $post->update($postData);
 
         return redirect()->route('posts.show', $post);

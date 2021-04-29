@@ -17,15 +17,20 @@
                         </tr>
                         @endif
                         <tr>
-                            <td>{{ __('post.title') }}</td>
+                            <td>Judul</td>
                             <td>{{ $post->title_post }}</td>
                         </tr>
                         <tr>
-                            <td colspan="2">{{ __('post.description') }}</td>
+                            <td>Prioritas</td>
+                            <td>{{ $post->priority }}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Isi Post</td>
                         </tr>
                         <tr>
                             <td colspan="2">{!! $post->content_post !!}</td>
                         </tr>
+
                     </tbody>
                 </table>
                 <div class="form-group">

@@ -49,7 +49,7 @@
                     </div>
                     <div class="form-group">
                         <label for="priority" class="form-label">Prioritas <span class="form-required">*</span></label>
-                        <input id="priority" type="text" id="berita_terkini" class="form-control{{ $errors->has('title_post') ? ' is-invalid' : '' }}" name="priority" value="{{ old('priority', $post->priority) }}" required>
+                        <input id="priority" type="text" id="berita_terkini" class="form-control{{ $errors->has('title_post') ? ' is-invalid' : '' }}" name="priority" value="{{ old('priority', $post->priority) }}">
                         <datalist id="berita_terkini">
                             <option value="Berita Terkini">Berita Terkini</option>
                         </datalist>
