@@ -19,8 +19,9 @@
 
     <!-- Libraries CSS Files -->
     <link href="{{asset('fe/lib/nivo-slider/css/nivo-slider.min.css')}}" rel="stylesheet">
-    <link href="{{asset('fe/lib/owlcaraousel/owl.caraousel.css')}}" rel="stylesheet">
-    <link href="{{asset('fe/lib/owlcaraousel/owl.transitions.css')}}" rel="stylesheet">
+    <link href="{{asset('fe/lib/owl-carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    {{-- <link href="{{asset('fe/lib/owlcaraousel/owl.caraousel.css')}}" rel="stylesheet">
+    <link href="{{asset('fe/lib/owlcaraousel/owl.transitions.css')}}" rel="stylesheet"> --}}
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('fe/lib/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('fe/lib/venobox/venobox.css')}}" rel="stylesheet">
@@ -33,6 +34,16 @@
 
     <!-- Responsive Stylesheet File -->
     <link href="{{asset('fe/css/responsive.css')}}" rel="stylesheet">
+
+    <style>
+
+        #owl-big-banner .item img {
+            display: block;
+            width: 100%;
+            height: 89vh;
+        }
+
+    </style>
 
     <!-- =======================================================
       Theme Name: eBusiness

@@ -25,7 +25,7 @@ class ProfileSeeder extends Seeder
         $content .= '<p style="text-align: justify;">Semoga dengan adanya penyempurnaan website ini dapat mewujudkan pelayanan yang prima dan tentunya Bea dan Cukai Kotabaru kedepan Makin Baik.</p>';
         $content .= '<p>Wassalamu’alaikum Wr. Wb.</p>';
         $content .= '</br>';
-        $content .= '<p>BAGUS SULISTIJONO</p>';
+        $content .= '<p></p>';
         $content .= '<p>Kepala Kantor</p>';
 
         Page::create([

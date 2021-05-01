@@ -10,8 +10,13 @@
         <div>
             {!! $post->content_post !!}
         </div>
+        <div>
+            Prioritas Berita : {!! $post->priority !!}
+        </div>
         <hr>
-        <p>Tanggal dipublikasikan : {!! $post->tanggal_post !!}</p>
+        <div>
+            <p>Publikasi <i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($post->tanggal_post)->format('d M Y') }}</p>
+        </div>
     </div>
 </section>
 {{--<img src="{{asset('storage/' . )}}" alt="" style="width: 100%; margin-top: 11.6vh" class="jumbotron-fluid" />--}}

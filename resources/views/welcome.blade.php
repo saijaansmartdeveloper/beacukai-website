@@ -5,7 +5,21 @@
 <!-- Start Slider Area -->
 <div id="home" class="slider-area">
     <div class="bend niceties preview-2" style="margin-top: 9vh">
-        <div id="ensign-nivoslider" class="slides" style="max-height: 90vh">
+        <div id="owl-big-banner" class="owl-carousel owl-theme">
+            @forelse ($banners as $key => $item)
+            <div class="item">
+                <img src="{{asset('storage/' . $item->image_banner)}}" alt="{{ $item->title_banner }}" />
+            </div>
+            @empty
+            <div class="item">
+                <p class="italic">Banner Not Found</p>
+            </div>
+            @endforelse
+
+        </div>
+
+
+        {{-- <div id="ensign-nivoslider" class="slides" style="max-height: 90vh">
             @forelse ($banners as $key => $item)
                 <img src="{{asset('storage/' . $item->image_banner)}}" alt="" title="#slider-direction-{{++$key}}"
                      style="width: 100%"/>
@@ -41,7 +55,7 @@
             </div>
         </div>
         @empty
-        @endforelse
+        @endforelse --}}
 
     </div>
 </div>
@@ -534,7 +548,7 @@
                                     <a href="#">13 comments</a>
                                 </span> --}}
                                 <span class="date-type">
-                            <i class="fa fa-calendar"></i> {{ $item->tanggal_post }}
+                            <i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($item->tanggal_post)->format('d M Y') }}
                         </span>
                             </div>
                             <div class="blog-text">
