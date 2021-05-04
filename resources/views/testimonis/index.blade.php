@@ -24,33 +24,36 @@
                     <a href="{{ route('testimonis.index') }}" class="btn btn-link">{{ __('app.reset') }}</a>
                 </form>
             </div>
-            <table class="table table-sm table-responsive-sm table-hover">
-                <thead>
-                    <tr>
-                        <th class="text-center">{{ __('app.table_no') }}</th>
-                        <th>Nama Pemberi Testimoni</th>
-                        <th>Nama Perusahaan</th>
-                        <th>Testimoni</th>
-                        <th class="text-center">{{ __('app.action') }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($testimonis as $key => $testimoni)
-                    <tr>
-                        <td class="text-center">{{ $testimonis->firstItem() + $key }}</td>
-                        <td>{!! $testimoni->title_link !!}</td>
-                        <td>{{ $testimoni->company_testimoni }}</td>
-                        <td>{{ $testimoni->testimoni }}</td>
-                        <td class="text-center">
-                            @can('view', $testimoni)
-                                <a href="{{ route('testimonis.show', $testimoni) }}" id="show-testimoni-{{ $testimoni->id }}">{{ __('app.show') }}</a>
-                            @endcan
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            <div class="card-body">{{ $testimonis->appends(Request::except('page'))->render() }}</div>
+
+            <div class="card-body">
+                <table class="table table-sm table-responsive-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">{{ __('app.table_no') }}</th>
+                            <th>Nama Pemberi Testimoni</th>
+                            <th>Nama Perusahaan</th>
+                            <th>Testimoni</th>
+                            <th class="text-center">{{ __('app.action') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($testimonis as $key => $testimoni)
+                        <tr>
+                            <td class="text-center">{{ $testimonis->firstItem() + $key }}</td>
+                            <td>{!! $testimoni->title_link !!}</td>
+                            <td>{{ $testimoni->company_testimoni }}</td>
+                            <td>{{ $testimoni->testimoni }}</td>
+                            <td class="text-center">
+                                @can('view', $testimoni)
+                                    <a href="{{ route('testimonis.show', $testimoni) }}" id="show-testimoni-{{ $testimoni->id }}">{{ __('app.show') }}</a>
+                                @endcan
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{ $testimonis->appends(Request::except('page'))->render() }}
+            </div>
         </div>
     </div>
 </div>

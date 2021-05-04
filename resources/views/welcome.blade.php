@@ -8,6 +8,10 @@
         <div id="owl-big-banner" class="owl-carousel owl-theme">
             @forelse ($banners as $key => $item)
             <div class="item">
+                <div class="text-banner" style="background: #ffffffc0; color: #333333; position: absolute;top: 35%; width: 100%; padding-bottom: 10px;">
+                    <h1 class="h1 text-center"><strong>{{ $item->title_banner }}</strong></h1>
+                    <h4 class="h4 text-center"><em>{{ $item->description_banner }}</em></h4>
+                </div>
                 <img src="{{asset('storage/' . $item->image_banner)}}" alt="{{ $item->title_banner }}" />
             </div>
             @empty
@@ -17,45 +21,6 @@
             @endforelse
 
         </div>
-
-
-        {{-- <div id="ensign-nivoslider" class="slides" style="max-height: 90vh">
-            @forelse ($banners as $key => $item)
-                <img src="{{asset('storage/' . $item->image_banner)}}" alt="" title="#slider-direction-{{++$key}}"
-                     style="width: 100%"/>
-            @empty
-                <p class="italic">Banner Not Found</p>
-            @endforelse
-        </div>
-
-        <!-- direction 1 -->
-        @forelse ($banners as $key => $item)
-        <div id="slider-direction-1" class="slider-direction slider-one">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="slider-content">
-                            <!-- layer 1 -->
-                            <div class="layer-1-1 hidden-xs wow slideInDown" data-wow-duration="2s"
-                                 data-wow-delay=".2s">
-                                <h2 class="title1" style="color: gold;">Direktorat Jenderal Bea dan Cukai</h2>
-                            </div>
-                            <!-- layer 2 -->
-                            <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
-                                <h1 class="title2" style="color: gold;">KPPBC TMP C Kotabaru</h1>
-                            </div>
-                            <!-- layer 3 -->
-                            <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
-                                <a class="ready-btn right-btn page-scroll" href="#services">Lihat Layanan</a>
-                                <a class="ready-btn page-scroll" href="#about">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @empty
-        @endforelse --}}
 
     </div>
 </div>
@@ -212,7 +177,7 @@
                             </div>
                             <div class="team-content text-center">
                                 <h4>{{$survey->name_survey ?? ''}}</h4>
-                                <!--<p>Seo</p>-->
+                                <p>{{$survey->description_survey ?? ''}}</p>
                             </div>
                         </div>
                     </div>
@@ -246,7 +211,6 @@
                             <th class="text-center">Nama Mata Uang</th>
                             <th class="text-center">Nilai Mata Uang</th>
                             <th class="text-center">Perubahan Mata Uang</th>
-                            <th class="text-center">Periode</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -256,7 +220,6 @@
                                 <td class="text-left">{!! $item->nama_mata_uang !!}</td>
                                 <td class="text-right">{!! $item->nilai !!}</td>
                                 <td class="text-center">{!! $item->status_up_down !!}</td>
-                                <td class="text-center">{!! $item->tanggal_berlaku !!}</td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -491,11 +454,9 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <!-- Start testimonials Start -->
                     <div class="testimonial-content text-center">
-                        <a class="quate" href="#">
-                            <i class="fa fa-quote-right"></i>
-                        </a>
+                        <h1 class="h1" style="color: white;">TESTIMONI</h1>
                         <!-- start testimonial carousel -->
-                        <div class="testimonial-carousel">
+                        <div id="testimonial-carousel" class="owl-carousel owl-theme">
                             <!-- End single item -->
                             @foreach ($testimonis as $item)
                                 <div class="single-testi">
@@ -532,24 +493,21 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-            @foreach ($posts as $item)
-                <!-- Start Left Blog -->
+
+            @foreach ($posts->chunk(3) as $items)
+                <div class="row" style="margin-bottom: 2rem; padding-top: 2rem; padding-bottom: 2rem;">
+                    @foreach ($items as $item)
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="single-blog">
                             <div class="single-blog-img">
-                                <a href="bckotabaru/comingsoon">
-                                    <img src="{{asset('storage/' . $item->image_post)}}" alt="">
+                                <a href="{{url('post/' . $item->slug)}}">
+                                    <img src="{{asset('storage/' . $item->image_post)}}" alt="" style="max-height: 200px; width: 100%;">
                                 </a>
                             </div>
                             <div class="blog-meta">
-                                {{-- <span class="comments-type">
-                                    <i class="fa fa-comment-o"></i>
-                                    <a href="#">13 comments</a>
-                                </span> --}}
                                 <span class="date-type">
-                            <i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($item->tanggal_post)->format('d M Y') }}
-                        </span>
+                                    <i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($item->tanggal_post)->format('d M Y') }}
+                                </span>
                             </div>
                             <div class="blog-text">
                                 <h4>
@@ -560,14 +518,14 @@
                                 </p>
                             </div>
                             <span>
-                        <a href="{{url('post/' . $item->slug)}}" class="ready-btn">Read more</a>
-                    </span>
+                                <a href="{{url('post/' . $item->slug)}}" class="ready-btn">Read more</a>
+                            </span>
                         </div>
-                        <!-- Start single blog -->
                     </div>
-                    <!-- End Left Blog-->
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
+            @endforeach
+
             @if (count($posts) >= 3)
             <div class="row" style="padding-top: 40px">
                 <a href="{{ route('post.list') }}" class="btn btn-block ready-btn" style="color: #333; border-color: #eee;">Lihat Semua Berita</a>
@@ -592,6 +550,7 @@
     </div>
 </div>
 <!-- End Suscrive Area -->
+
 <!-- Start contact Area -->
 <div id="contact" class="contact-area">
     <div class="contact-inner area-padding">
@@ -624,7 +583,6 @@
                             <i class="fa fa-envelope-o"></i>
                             <p>
                                 Email: {!! ($footer->email_instansi) ?? '' !!}<br>
-                                <span>Web: {!! ($footer->web_instansi) ?? '' !!}</span>
                             </p>
                         </div>
                     </div>

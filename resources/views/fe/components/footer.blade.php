@@ -15,47 +15,40 @@
 <script src="{{asset('fe/lib/isotope/isotope.pkgd.min.js')}}"></script>
 
 <script src="{{asset('fe/js/main.js')}}"></script>
-<script>
-    /*---------------------
-   Testimonial carousel
-  ---------------------*/
 
-    // var test_carousel = $('.testimonial-carousel');
-    // test_carousel.owlCarousel({
-    //     loop: true,
-    //     nav: false,
-    //     dots: true,
-    //     autoplay: true,
-    //     responsive: {
-    //         0 : {
-    //             items : 1
-    //         },
-    //     }
-    // });
+<script>
+$(document).ready(function() {
 
     $("#owl-big-banner").owlCarousel({
-
         navigation : true, // Show next and prev buttons
-
+        loop : true,
         slideSpeed : 300,
         paginationSpeed : 400,
-
+        stoponhover : true,
         items : 1,
         itemsDesktop : false,
         itemsDesktopSmall : false,
         itemsTablet: false,
-        itemsMobile : false
+        itemsMobile : false,
 
-        //  "singleItem:true" is a shortcut for:
-        // items : 1,
-        // itemsDesktop : false,
-        // itemsDesktopSmall : false,
-        // itemsTablet: false,
-        // itemsMobile : false
+        autoplay: true,
+   });
 
-    });
+   $("#testimonial-carousel").owlCarousel({
+        loop : true,
+        slideSpeed : 300,
+        paginationSpeed : 400,
+        stoponhover : true,
+        items : 1,
+        itemsDesktop : false,
+        itemsDesktopSmall : false,
+        itemsTablet: false,
+        itemsMobile : false,
 
+        autoplay: true,
+   });
 
+});
 </script>
 
 </body>

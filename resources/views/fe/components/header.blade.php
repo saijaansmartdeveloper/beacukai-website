@@ -20,6 +20,7 @@
     <!-- Libraries CSS Files -->
     <link href="{{asset('fe/lib/nivo-slider/css/nivo-slider.min.css')}}" rel="stylesheet">
     <link href="{{asset('fe/lib/owl-carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('fe/lib/owl-carousel/assets/owl.theme.default.min.css')}}" rel="stylesheet">
     {{-- <link href="{{asset('fe/lib/owlcaraousel/owl.caraousel.css')}}" rel="stylesheet">
     <link href="{{asset('fe/lib/owlcaraousel/owl.transitions.css')}}" rel="stylesheet"> --}}
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
@@ -40,7 +41,7 @@
         #owl-big-banner .item img {
             display: block;
             width: 100%;
-            height: 89vh;
+            height: 86vh;
         }
 
     </style>

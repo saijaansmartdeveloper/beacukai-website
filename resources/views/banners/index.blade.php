@@ -25,35 +25,38 @@
                     <a href="{{ route('banners.index') }}" class="btn btn-link">{{ __('app.reset') }}</a>
                 </form>
             </div>
-            <table class="table table-sm table-responsive-sm table-hover">
-                <thead>
-                    <tr>
-                        <th class="text-center">No</th>
-                        <th>Judul Banner</th>
-                        <th>Deskripsi Banner</th>
-                        <th>Prioritas</th>
-                        <th>Status</th>
-                        <th class="text-center">{{ __('app.action') }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($banners as $key => $banner)
-                    <tr>
-                        <td class="text-center">{{ $banners->firstItem() + $key }}</td>
-                        <td>{!! $banner->title_link !!}</td>
-                        <td>{{ $banner->description_banner }}</td>
-                        <td>{{ $banner->priority_banner }}</td>
-                        <td>{!! $banner->status_banner !!}</td>
-                        <td class="text-center">
-                            @can('view', $banner)
-                                <a href="{{ route('banners.show', $banner) }}" id="show-banner-{{ $banner->id }}">{{ __('app.show') }}</a>
-                            @endcan
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            <div class="card-body">{{ $banners->appends(Request::except('page'))->render() }}</div>
+
+            <div class="card-body">
+                <table class="table table-sm table-responsive-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">No</th>
+                            <th>Judul Banner</th>
+                            <th>Deskripsi Banner</th>
+                            <th>Prioritas</th>
+                            <th>Status</th>
+                            <th class="text-center">{{ __('app.action') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($banners as $key => $banner)
+                        <tr>
+                            <td class="text-center">{{ $banners->firstItem() + $key }}</td>
+                            <td>{!! $banner->title_link !!}</td>
+                            <td>{{ $banner->description_banner }}</td>
+                            <td>{{ $banner->priority_banner }}</td>
+                            <td>{!! $banner->status_banner !!}</td>
+                            <td class="text-center">
+                                @can('view', $banner)
+                                    <a href="{{ route('banners.show', $banner) }}" id="show-banner-{{ $banner->id }}">{{ __('app.show') }}</a>
+                                @endcan
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{ $banners->appends(Request::except('page'))->render() }}
+            </div>
         </div>
     </div>
 </div>

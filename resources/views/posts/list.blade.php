@@ -14,24 +14,21 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-            @foreach ($posts as $item)
-                <!-- Start Left Blog -->
+
+            @foreach ($posts->chunk(3) as $items)
+                <div class="row" style="margin-bottom: 2rem; padding-top: 2rem; padding-bottom: 2rem;">
+                    @foreach ($items as $item)
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="single-blog">
                             <div class="single-blog-img">
-                                <a href="bckotabaru/comingsoon">
-                                    <img src="{{asset('storage/' . $item->image_post)}}" alt="">
+                                <a href="{{url('post/' . $item->slug)}}">
+                                    <img src="{{asset('storage/' . $item->image_post)}}" alt="" style="max-height: 200px; width: 100%;">
                                 </a>
                             </div>
                             <div class="blog-meta">
-                                {{-- <span class="comments-type">
-                                    <i class="fa fa-comment-o"></i>
-                                    <a href="#">13 comments</a>
-                                </span> --}}
                                 <span class="date-type">
-                            <i class="fa fa-calendar"></i> {{$item->created_at->format('Y m d / h:i:s')}}
-                        </span>
+                                    <i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($item->tanggal_post)->format('d M Y') }}
+                                </span>
                             </div>
                             <div class="blog-text">
                                 <h4>
@@ -42,88 +39,19 @@
                                 </p>
                             </div>
                             <span>
-                        <a href="{{url('post/' . $item->slug)}}" class="ready-btn">Read more</a>
-                    </span>
+                                <a href="{{url('post/' . $item->slug)}}" class="ready-btn">Read more</a>
+                            </span>
                         </div>
-                        <!-- Start single blog -->
                     </div>
-                    <!-- End Left Blog-->
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
+            @endforeach
+
+
         </div>
     </div>
 </div>
 <!-- End Blog -->
-
-<!-- Start Suscrive Area -->
-<div class="suscribe-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
-                <div class="suscribe-text text-center">
-                    <h3>Welcome to Bea Cukai Kotabaru</h3>
-                    <a class="sus-btn" href="#">Kontak Kami</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Suscrive Area -->
-<!-- Start contact Area -->
-<div id="contact" class="contact-area">
-    <div class="contact-inner area-padding">
-        <div class="contact-overly"></div>
-        <div class="container ">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="section-headline text-center">
-                        <h2>Kontak Kami</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <!-- Start contact icon column -->
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="contact-icon text-center">
-                        <div class="single-icon">
-                            <i class="fa fa-mobile"></i>
-                            <p>
-                                Telpon: 0812-5825-7525<br>
-                                <span>Buka 24 Jam</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Start contact icon column -->
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="contact-icon text-center">
-                        <div class="single-icon">
-                            <i class="fa fa-envelope-o"></i>
-                            <p>
-                                Email: kpbc_kotabaru@yahoo.com<br>
-                                <span>Web: www.bckotabaru.net</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Start contact icon column -->
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="contact-icon text-center">
-                        <div class="single-icon">
-                            <i class="fa fa-map-marker"></i>
-                            <p>
-                                Alamat: Jl. Pangeran Kesuma Negara 12 B<br>
-                                <span>Kotabaru, Kalimantan Selatan 72111</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- End Contact Area -->
 
 <!-- Start Footer bottom Area -->
 <footer>
@@ -137,21 +65,15 @@
                                 <h2><span>BC</span>Kotabaru</h2>
                             </div>
 
-                            <p style="text-align: justify;">Kantor Pengawasan dan Pelayanan Bea dan Cukai Tipe Madya Pabean C Kotabaru berada di bawah Kantor Wilayah DJBC Kalimantan Bagian Selatan, merupakan salah satu unit kerja vertikal di bawah Direktorat Jenderal Bea dan Cukai pada Kementerian Keuangan Republik Indonesia.</p>
+                            <p style="text-align: justify;">{!! ($footer->deskripsi_instansi) ?? '' !!}</p>
                             <div class="footer-icons">
                                 <ul>
+                                    @foreach ($socials as $item)
                                     <li>
-                                        <a href="https://id-id.facebook.com/pages/category/Government-Organization/Bea-Cukai-Kotabaru-1436837939680697/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                        <a href="{{$item->link_social}}"
+                                           target="_blank">{{$item->icon_social ?? $item->title_social}}</a>
                                     </li>
-                                    <li>
-                                        <a href="https://twitter.com/bckotabaru?lang=en" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.youtube.com/channel/UCfLGTQ6CEgLIa1DstHfLAzA" target="_blank"><i class="fa fa-youtube"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/beacukai.kotabaru/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -163,12 +85,15 @@
                         <div class="footer-head">
                             <h4>Informasi</h4>
                             <div class="footer-contacts">
-                                <p><span>Tel:</span> 0812-5825-7525</p>
-                                <p><span>Email:</span> kpbc_kotabaru@yahoo.com</p>
-                                <p><span>Jam Kerja:</span> 24 Jam</p>
+                                <p><span>Tel:</span> {!! ($footer->telp_instansi) ?? '' !!}</p>
+                                <p><span>Email:</span> {!! ($footer->email_instansi) ?? '' !!}</p>
+                                <p><span>Jam Kerja:</span> {!! ($footer->jam_kerja_instansi) ?? '' !!}</p>
                             </div>
                             <h4>Jumlah Pengunjung</h4>
-                            <div class="footer-contacts"><script type="text/javascript" src="http://services.webestools.com/cpt_visitors/64272-1-9.js"></script></div>
+                            <div class="footer-contacts">
+                                <script type="text/javascript"
+                                        src="http://services.webestools.com/cpt_visitors/64272-1-9.js"></script>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,7 +102,7 @@
                     <div class="footer-content">
                         <div class="footer-head">
                             <h4>Peta Lokasi</h4>
-                            {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.4624998824697!2d116.22745961414053!3d-3.2344805976450886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2def31e82351e6d3%3A0x5f863fc0fa076e24!2sKANTOR%20BEA%20CUKAI%20KOTABARU!5e0!3m2!1sid!2sid!4v1574393905911!5m2!1sid!2sid" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe> --}}
+                            {!! ($footer->maps_instansi) ?? '' !!}
                         </div>
                     </div>
                 </div>
