@@ -81,6 +81,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="section-headline services-head text-center">
                         <h2>SIRING</h2>
+                        <p style="margin-top: 0.5rem;"><i>Sistem Informasi Perizinan Daring</i></p>
                     </div>
                 </div>
             </div>
