@@ -388,23 +388,6 @@
 </div>
 <!-- End Faq Area -->
 
-<!-- Start reviews Area -->
-<div class="reviews-area hidden-xs">
-    <div class="work-us">
-        <div class="work-left-text">
-            <a href="#">
-                <img src="{{asset('img/komunitas.jpg')}}" alt="">
-            </a>
-        </div>
-        <div class="work-right-text text-center">
-            <h2>BC Kotabaru Bersama Komunitas</h2>
-            <h5>Momen epik hasil kerjasama banyak pihak seperti ini telah menghasilkan banyak manfaat positif yang
-                didapat</h5>
-            <a href="#contact" class="ready-btn">Kontak Kami</a>
-        </div>
-    </div>
-</div>
-<!-- End reviews Area -->
 <!-- Start portfolio Area -->
 <div id="portfolio" class="portfolio-area area-padding fix">
     <div class="container">
