@@ -33,31 +33,31 @@
                                         PROFIL <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#about" class="page-scroll">Sejarah BC Kotaaru</a></li>
+                                        {{-- <li><a href="#about" class="page-scroll">Sejarah BC Kotaaru</a></li> --}}
                                         <li><a href="{{url('page/struktur-organisasi')}}">Struktur Organisasi</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a class="page-scroll" href="#services">SIRING</a>
+                                    <a class="page-scroll" href="{{url('/#service')}}">SIRING</a>
                                 </li>
                                 <li>
-                                    <a class="page-scroll" href="#pricing">PELAYANAN</a>
+                                    <a class="page-scroll" href="{{url('/#pricing')}}">PELAYANAN</a>
                                 </li>
                                 <li>
-                                    <a class="page-scroll" href="{{ url('peraturan') }}" target="_blank">PERATURAN</a>
+                                    <a class="page-scroll" href="{{ url('peraturan') }}">PERATURAN</a>
                                 </li>
                                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">TENTANG KAMI<span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#portofolio" class="page-scroll" >TUGAS KAMI</a></li>
-                                        <li><a class="page-scroll" href="#team" >HASIL SURVEY</a></li>
+                                        <li><a href="{{url('/#portofolio')}}" class="page-scroll" >TUGAS KAMI</a></li>
+                                        <li><a class="page-scroll" href="{{url('/#team')}}" >HASIL SURVEY</a></li>
                                     </ul>
                                 </li>
 
                                 <li>
-                                    <a class="page-scroll" href="#blog">BERITA</a>
+                                    <a class="page-scroll" href="{{url('/#blog')}}">BERITA</a>
                                 </li>
                                 <li>
-                                    <a class="page-scroll" href="#contact">KONTAK</a>
+                                    <a class="page-scroll" href="{{url('/#contact')}}">KONTAK</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('page/faq') }}">FAQ</a>

@@ -17,7 +17,7 @@ class FooterSeeder extends Seeder
         Footer::create([
             'nama_instansi'         => 'BCKotabaru',
             'deskripsi_instansi'    => 'Kantor Pengawasan dan Pelayanan Bea dan Cukai Tipe Madya Pabean C Kotabaru berada di bawah Kantor Wilayah DJBC Kalimantan Bagian Selatan, merupakan salah satu unit kerja vertikal di bawah Direktorat Jenderal Bea dan Cukai pada Kementerian Keuangan Republik Indonesia.',
-            'email_instansi'        => 'kpbc_kotabaru@yahoo.com',
+            'email_instansi'        => 'kppbckotabaru@gmail.com',
             'web_instansi'          => 'www.bckotabaru.net',
             'telp_instansi'         => '0812-5825-7525',
             'alamat_instansi'       => 'Jl. Pangeran Kesuma Negara 12 B Kotabaru, Kalimantan Selatan 72111',

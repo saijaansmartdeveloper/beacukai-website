@@ -12,7 +12,7 @@
                     <h1 class="h1 text-center"><strong>{{ $item->title_banner }}</strong></h1>
                     <h4 class="h4 text-center"><em>{{ $item->description_banner }}</em></h4>
                 </div>
-                <img src="{{asset('storage/' . $item->image_banner)}}" alt="{{ $item->title_banner }}" />
+                <img src="{{asset('uploads/' . $item->image_banner)}}" alt="{{ $item->title_banner }}" />
             </div>
             @empty
             <div class="item">
@@ -43,7 +43,7 @@
                     <div class="well-left">
                         <div class="single-well">
                             <a href="#">
-                                <img src="{{asset('storage/' . $profil->image_page )}}" alt="">
+                                <img src="{{asset('uploads/' . $profil->image_page )}}" alt="">
                             </a>
                             <ul>
                                 @forelse($layanan as $key => $item)
@@ -173,7 +173,7 @@
                     <div class="col-xs-12">
                         <div class="single-team-member">
                             <div>
-                                <img src="{{ asset('storage/' . $survey->file_survey ?? '') }}" alt=""
+                                <img src="{{ asset('uploads/' . $survey->file_survey ?? '') }}" alt=""
                                      style="width: 100%">
                             </div>
                             <div class="team-content text-center">
@@ -406,7 +406,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12 photo">
                         <div class="single-awesome-project">
                             <div class="awesome-img">
-                                <a href="#"><img src="{{ asset('storage/' . $item->image_link) }}" alt=""/></a>
+                                <a href="#"><img src="{{ asset('uploads/' . $item->image_link) }}" alt=""/></a>
                                 <div class="add-actions text-center">
                                     <div class="project-dec">
                                         <a href='{{$item->external_link}}' target="_blank">
@@ -485,7 +485,7 @@
                         <div class="single-blog">
                             <div class="single-blog-img">
                                 <a href="{{url('post/' . $item->slug)}}">
-                                    <img src="{{asset('storage/' . $item->image_post)}}" alt="" style="max-height: 200px; width: 100%;">
+                                    <img src="{{asset('uploads/' . $item->image_post)}}" alt="" style="max-height: 200px; width: 100%;">
                                 </a>
                             </div>
                             <div class="blog-meta">
@@ -589,76 +589,5 @@
 </div>
 <!-- End Contact Area -->
 
-<!-- Start Footer bottom Area -->
-<footer>
-    <div class="footer-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5 col-sm-5 col-xs-12">
-                    <div class="footer-content">
-                        <div class="footer-head">
-                            <div class="footer-logo">
-                                <h2><span>BC</span>Kotabaru</h2>
-                            </div>
-
-                            <p style="text-align: justify;">{!! ($footer->deskripsi_instansi) ?? '' !!}</p>
-                            <div class="footer-icons">
-                                <ul>
-                                    @foreach ($socials as $item)
-                                    <li>
-                                        <a href="{{$item->link_social}}"
-                                           target="_blank">{{$item->icon_social ?? $item->title_social}}</a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end single footer -->
-                <div class="col-md-3 col-sm-3 col-xs-12">
-                    <div class="footer-content">
-                        <div class="footer-head">
-                            <h4>Informasi</h4>
-                            <div class="footer-contacts">
-                                <p><span>Tel:</span> {!! ($footer->telp_instansi) ?? '' !!}</p>
-                                <p><span>Email:</span> {!! ($footer->email_instansi) ?? '' !!}</p>
-                                <p><span>Jam Kerja:</span> {!! ($footer->jam_kerja_instansi) ?? '' !!}</p>
-                            </div>
-                            <h4>Jumlah Pengunjung</h4>
-                            <div class="footer-contacts">
-                                <script type="text/javascript"
-                                        src="http://services.webestools.com/cpt_visitors/64272-1-9.js"></script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end single footer -->
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="footer-content">
-                        <div class="footer-head">
-                            <h4>Peta Lokasi</h4>
-                            {!! ($footer->maps_instansi) ?? '' !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-area-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="copyright text-center">
-                        <p>
-                            Created @2019 by <strong> Yo</strong> || KPPBC TMP C Kotabaru
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 
 @include('fe.components.footer')

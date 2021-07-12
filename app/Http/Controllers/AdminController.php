@@ -89,7 +89,8 @@ class AdminController extends Controller
             'media'         => KotabaruLink::get() ?? [],
             'testimonis'    => Testimoni::get() ?? [],
             'posts'         => Post::orderBy('created_at', 'desc')->where('priority', 'Berita Terkini')->get(),
-            'footer'        => [],
+            'footer'        => Footer::where('nama_instansi', 'BCKotabaru')->first(),
+            'socials'       => Social::get() ?? [],
             'peraturan'     => $peraturan
         ];
 
