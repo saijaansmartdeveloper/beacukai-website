@@ -39,7 +39,7 @@
                         <p>{{ $item->tentang_peraturan }}</p>
                     </td>
                     <td style="width: 5%" class="text-center">
-                        <a href="{{ url('storage/' . $item->file_peraturan) }}" target="_blank"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></a>
+                        <a href="{{ url('uploads/' . $item->file_peraturan) }}" target="_blank"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></a>
                     </td>
                 </tr>
                 @empty
