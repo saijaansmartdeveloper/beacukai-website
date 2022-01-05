@@ -27,7 +27,7 @@ class Kurs extends Model
 
     public function getStatusUpDownAttribute()
     {
-        return ($this->status == 'naik') ? "<span class='glyphicon glyphicon-triangle-top' style='color: green'></span> $this->perubahan" : '<span class="glyphicon glyphicon-triangle-down" style="color: red"></span> ' . $this->perubahan;
+        return ($this->status == 'naik') ? "<span class='glyphicon glyphicon-triangle-top' style='color: green'></span> $this->perubahan" : '<span class="glyphicon glyphicon-triangle-bottom" style="color: red"></span> ' . $this->perubahan;
     }
 
     public function creator()
