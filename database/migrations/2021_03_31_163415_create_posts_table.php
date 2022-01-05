@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->longText('content_post')->nullable();
             $table->string('image_post')->nullable();
             $table->string('priority')->nullable();
+            $table->boolean('is_newest_post')->default(false);
             $table->foreignId('creator_id')->constrained('users')->onDelete('restrict');
             $table->timestamps();
         });
