@@ -17,7 +17,7 @@ class CreateTestimonisTable extends Migration
             $table->bigIncrements('id');
             $table->string('name_testimoni', 60);
             $table->string('company_testimoni')->nullable();
-            $table->string('testimoni')->nullable();
+            $table->text('testimoni')->nullable();
             $table->foreignId('creator_id')->constrained('users')->onDelete('restrict');
             $table->timestamps();
         });
