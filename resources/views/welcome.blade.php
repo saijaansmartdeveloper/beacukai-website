@@ -409,7 +409,7 @@
                                 <a href="#"><img src="{{ asset('uploads/' . $item->image_link) }}" alt=""/></a>
                                 <div class="add-actions text-center">
                                     <div class="project-dec">
-                                        <a href='{{$item->external_link}}' target="_blank">
+                                        <a href='{{ url($item->external_link) }}' target="_blank">
                                             <!--<a class="venobox" data-gall="myGallery" href="img/portfolio/insw.png">-->
                                             <h4 class="h4"
                                                 style="margin-top: 0px; padding-top: 30px">{{$item->title_link}}</h4>
